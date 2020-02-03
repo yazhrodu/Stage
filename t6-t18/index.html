@@ -1,0 +1,125 @@
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<title>jQuery chatbox</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script type="text/javascript">
+		var username ="";
+		function send_message(message){
+			var prevState = $("#container").html();
+			
+			if(prevState.length > 3){
+				prevState = prevState + "<br>";
+				 
+			}
+			//bot, jQuery animation 
+			var ecrit = "Chatbot est en train d'écrire.. ";
+			$("#container").html(prevState +"<span class = 'encours'>"+ ecrit +"</span>"+"<span class = 'current_message'>"+"<span class = 'bot'>Chatbot: </span>" + message + "</span>");
+			$(".encours").delay(700).fadeOut(300);
+			$(".current_message").hide();
+			$(".current_message").delay(1000).fadeIn(400);
+			$(".current_message").removeClass("current_message");
+		}
+		function get_username(){
+		 	send_message("Bonjour, quel est votre nom?");
+		  }
+		//chatbot Reactions
+		function ai(message){
+			
+			if(username.length <=1){
+				username = message;
+				send_message("Enchanté " + username +", comment allez vous?");
+			}
+			if (message.indexOf("comment allez vous?")>=0){
+				send_message("bien, merci");
+			}
+			
+			if ((message.indexOf("bien")>=0)  || (message.indexOf("merci")>=0) || (message.indexOf("Bien")>=0) ){
+				send_message("Voulez-vous, connaitre l'heure actuelle?");
+			}
+			
+			
+			if ( (message.indexOf("oui")>=0) || (time == 1) ){
+				var date = new Date();
+				var h = date.getHours();
+				var m = date.getMinutes();
+				send_message("Il est: "+h+":"+m);
+				
+			}
+			
+			
+			if ( (message.indexOf("heures")>=0) || (message.indexOf("heure")>=0) ){
+				var date = new Date();
+				var h = date.getHours();
+				var m = date.getMinutes();
+				send_message("Il est: "+h+":"+m);
+			}
+		}
+		$(function(){
+			get_username();
+			//Document has been loaded
+			//permet d'interagir avec le clavier
+			$("#textbox").keypress(function(event){
+				//si la checkbox portant l'identifiant enter est cocher et qu'il a taper sur entré alors on affiche dans la console un message pour confirmé que le code marche, si les conditions sont remplis un message sera envoyé et affiché dans le contaigner
+				if(event.which ==13){
+					if($("#enter").prop("checked") ){
+						console.log("enter pressed, checkbox is checked");
+						$( "#textbox" ).empty();
+
+						
+				//var newMessage = $("#textbox").val();
+				//$("textbox").val("");
+				//var prevState = $("#container").html();
+				//$("#container").html(prevState + "<br>" + newMessage);
+						//si il click sur le button, affiche la fonction par defaut
+						$("#send").click();
+						event.preventDefault();
+					}
+				}
+			});
+			//pour envoyer un message à partir du button
+			$("#send").click(function(){
+				
+				var username = "<span class='username'>You: </span>";
+				
+				var newMessage = $("#textbox").val();
+				
+				$("#textbox").val("");
+				
+				var prevState = $("#container").html();
+				
+				if(prevState.length > 3){
+					prevState = prevState + "<br>";
+				}
+				
+				
+				$("#container").html(prevState + username + newMessage);
+				
+				$("#container").scrollTop($("#container").prop("scrollHight"));
+				
+				ai(newMessage);
+			});
+		});
+			
+		</script>
+	<link rel="stylesheet" href="css.css">
+	</head>
+	<body>
+		
+		
+		<div id ="header">
+			<h1>jQuery Chatbot v.1.0</h1>
+		</div>
+		<div id="container"></div>
+		<div id="controls">
+		<textarea id="textbox" placeholder="Enter your message here.."></textarea>
+		<button id="send">Send</button>
+		<br>
+		<input checked type="checkbox" id = "enter">
+		<label>Send on enter</label>
+
+		</div>
+		
+	</body>
+</html>

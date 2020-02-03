@@ -1,0 +1,34 @@
+{
+  "name": "serverNode.js",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "start": "node login.js",
+    "devStart": "nodemon login.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "connect": "^3.7.0",
+    "ejs": "^3.0.1",
+    "env": "0.0.2",
+    "event-emitter": "^0.3.5",
+    "express": "^4.17.1",
+    "express-ejs-layouts": "^2.5.0",
+    "express-session": "^1.17.0",
+    "jQuery": "^1.7.4",
+    "jquery": "^3.4.1",
+    "jsdom": "^16.0.1",
+    "mongoose": "^5.8.9",
+    "mysql": "^2.17.1",
+    "serve-static": "^1.14.1",
+    "session.socket.io": "^0.2.1",
+    "socket.io": "^2.3.0"
+  },
+  "devDependencies": {
+    "dotenv": "^8.2.0",
+    "nodemon": "^2.0.2"
+  },
+  "description": ""
+}

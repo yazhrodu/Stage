@@ -1,0 +1,146 @@
+<DOCTYPE html>
+<html>
+<head>
+    <title>Modèle</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<style>
+		#draggable{
+			background-color: blueviolet;
+			height: 200px;
+			width: 200px;
+			margin-left: -400px;	
+		}
+		#draggable2{
+			background-color: blueviolet;
+			height: 200px;
+			width: 200px;
+			margin-left: -400px;	
+		}
+		#draggable3{
+			background-color: blueviolet;
+			height: 200px;
+			width: 200px;
+			margin-left: -400px;	
+		}
+			#test{
+			background-color: red;
+			height: 700px;
+			width: 700px;
+			margin-left: 400px;	
+		}
+		#test2{
+			background-color: aliceblue;
+			height: 400px;
+			width: 100px;
+			margin-top: 400px;
+			margin-right: 400px;
+		}
+		
+		#corps{
+			background-color: aquamarine;
+			height: 1000px;
+			width: 700px;
+			
+		}
+		
+	</style>
+	</head>
+<body>
+	<div id="drag">
+    <p>Ceci est un élément valide</p>
+</div>
+
+<div id="not-drag">
+    <p>Ceci n'est pas un élément valide</p>
+</div>
+
+<div id="drop">
+    <p>Déposer ici</p>
+</div><br><br><br><br><br>
+	
+	<div id="valid">
+    <p>Ceci est un élément valide</p>
+</div>
+
+<div id="invalid">
+    <p>Ceci n'est pas un élément valide</p>
+</div>
+
+<div id="dropp">
+    <p>Déposer ici</p>
+</div>
+	<br><br><br>
+	<div id="corps">
+	<div id="test">
+		<div id="test2"></div>
+	<div id="draggable"></div>
+	<div id="draggable2"></div>
+	</div>
+	</div>
+	<script>
+	$( function() {
+    $( "#draggable" ).draggable({
+		containment: "#corps"
+	});
+	$('#drag').draggable({
+    snap : '#draggable2' // chaque élément ayant la classe "draggable" exercera une attraction
+});
+	});
+	
+	$(function(){
+		$('#test').droppable({
+
+    drop : function(){
+        alert('Action terminée !'); // cette alerte s'exécutera une fois le bloc déposé
+    }
+
+});
+    });
+	$(function(){
+		$('#draggable2').draggable({
+    snap : true
+});
+	});
+		
+		$('#drag').draggable({
+    revert : true
+});
+$('#not-drag').draggable();
+
+$('#drop').droppable({
+    accept : '#drag', // je n'accepte que le bloc ayant "drag" pour id
+    drop : function(){
+        alert('Action terminée !');
+    }
+});
+		
+		$('#valid').draggable({
+		
+			revert : 'valid' // sera renvoyé à sa place s'il est déposé dans #drop
+});
+			$(function(){
+				$('#valid').mouseup(function(){
+					$('#valid').clone();
+				});
+				
+			});
+			
+
+$('#invalid').draggable({
+    revert : 'invalid' // sera renvoyé à sa place s'il n'est pas déposé dans #drop
+});
+
+$('#dropp').droppable({
+
+    drop : function(){
+        alert('Action terminée !');
+    }
+
+});
+	</script>
+</body>
+</html>

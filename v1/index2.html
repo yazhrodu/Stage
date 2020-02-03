@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<title>Admin</title>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link href="assets/plugin/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="stylesheet" href="assets/styles/css.css">
+</head>
+<!--Header-->
+<div class="container.fluid">
+<header><h1 class="text-center">ADMIN - GESTION DE L'AFFICHAGE DES ECRANS</h1></header>
+</div>
+<body>
+	<!--Boutton ajouter-->
+	<div id="ajouter">
+		<p class="text-center"><button id="button_aj" type="button" class="btn btn-success"  class="navbar-right">AJOUTER</button></p>
+		<!--Formulaire-->
+		<div class="container p-3 my-3 border" id="reduit">
+		<div id="ajouter2">
+		<div class="row">
+		<div class="form-group">
+    		<p>
+		<label for="usr">Adresse IP :</label>
+        <input type="text" id="adesse_ip" placeholder="Ex : 192.168.50.21" size="30" maxlength="15" class="form-control" id="usr"/><br>
+        <label for="usr">Nom :</label>
+        <input type="text"  id="nom_ecran"  size="30" maxlength="18" class="form-control" id="usr"/><br><br>
+        <input type="submit" value="AJOUTER" class="btn btn-success" id="ajouter3"/>
+		<input id="annuler" type="submit" value="ANNULER" type="button" class="btn btn-dark"/>
+			</p>
+				</div>
+		
+	</div>
+		</div>
+		</div>
+	</div>
+	<!--Les ecrans-->
+	<div id = "wrapper">
+			<ul id = "portfolio">
+				<li class="col-sm"><img class="active" src="assets/images/sativa.png" alt="img"/><p id="nom_ecran"> --nom-- </p></li>
+				<li class="col-sm"><img class="active" src="assets/images/sativa.png" alt="img"/><p id="nom_ecran"> --nom-- </p></li>
+				<li class="col-sm"><img class="active" src="assets/images/sativa.png" alt="img"/><p id="nom_ecran"> --nom-- </p></li>
+				<li class="col-sm"><img class="active" src="assets/images/sativa.png" alt="img"/><p id="nom_ecran"> --nom-- </p></li>
+				<li class="col-sm"><img class="active" src="assets/images/sativa.png" alt="img"/><p id="nom_ecran"> --nom-- </p></li>
+				<li class="col-sm"><img class="active" src="assets/images/sativa.png" alt="img"/><p id="nom_ecran"> --nom-- </p></li>
+				<li class="col-sm"><img class="active" src="assets/images/sativa.png" alt="img"/><p id="nom_ecran"> --nom-- </p></li>
+				<li class="col-sm"><img class="active" src="assets/images/sativa.png" alt="img"/><p id="nom_ecran"> --nom-- </p></li>
+				<li class="col-sm"><img class="active" src="assets/images/sativa.png" alt="img"/><p id="nom_ecran"> --nom-- </p></li>
+				
+			</ul>
+		</div>
+	<!--Interface d'édition pour l'affichage de des écrans-->	
+	
+		<!--<div id="poser"><li><div id="ec1"></div><p>Test</p></li></div>-->
+
+
+	
+	<div id = "wrapper2">
+		<div id = "portfolio2">
+			
+			<div class="col-sm-2" id = "portfolioli">	
+	<div id="ec">
+	<p id="ecp">test</p>
+	<div id="sortir"></div>
+	<div id="ec1"></div>
+	<div id="ec2"></div>
+	<div id="ec3"></div>
+	<div id="ec4"></div>
+		</div>
+		</div>
+	
+	<div class="col-sm-8" id = "portfolioli">
+		<div id="depose"><p>déposé ici</p></div></div>
+	</div>
+		
+	<div class="col-sm-2" id = "portfolioli">	
+	<div id="fc">
+		<p>tests</p>
+	<div id="fc1"></div>
+	<div id="fc2"></div>
+	<div id="fc3"></div>
+	<div id="fc4"></div>
+		</div>
+		</div>
+		
+		</div>
+	
+	
+	
+	
+
+</body>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="assets/plugin/bootstrap/js/bootstrap.min.js"></script>
+<script src="assets/scripts/gestion.js"></script>
+</html>
