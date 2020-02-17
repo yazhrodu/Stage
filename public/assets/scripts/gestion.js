@@ -32,69 +32,8 @@ $(document).ready(function() {
 				console.log(id_depott);
 				console.log(ecrans_id);
 				});
-
 	
 	
-	
-
-	
-	io.on('depot',function(myJSON, rows){
-		var i,nom ="";
-	//Active l'interface d'édition pour les écrans
-	$('#wrapper').on('click', '.active', function(){
-		//var id_dep = $(this).find('#id_dept').attr('value');
-		var id_dep = $(this).find('#id_ecran').attr('value');
-		
-		var nom = $(this).find('#nom_ecran').attr('value');
-		console.log(nom);
-		
-		var ecranss = document.createElement('p');
-		$(ecranss).append('#nom_ecranss');
-		$('#nom_ecranss').append(nom);
-		
-		
-		console.log(id_dep);
-		 
-		var myObj = JSON.parse(myJSON);
-		console.log(myObj);
-			console.log(myJSON);
-	    
-				if(myObj.nom_ec = "Rapida"){
-					//console.log(myObj.id);
-				}
-  			
-		
-		
-		io.emit('depo',id_dep);
-		
-		
-		
-		
-
-		
-		
-		$('header').fadeOut(200);
-		$('#ajouter2').fadeOut(200);
-		$('#ajouter').fadeOut(200);
-		$('#wrapper').fadeOut(200);
-		$('#test').fadeOut(200);
-		$('#button_aj').fadeOut(200, function(){
-		$('#wrapper3').fadeIn(200);
-		$('#droite').fadeOut();
-			
-		
-			
-	
-			
-			});
-		
-		});
-	});
-	
-	
-		
-		
-
 		
 //Affiche le formulaire pour ajouter des ecrans.
 	$('#ajouter').on('click', '#button_aj', function(){
@@ -135,6 +74,80 @@ $(document).ready(function() {
 //2eme partie
 
 	
+	io.on('depot',function(myJSON, rows){
+		var i,nom ="";
+		
+	//Active l'interface d'édition pour les écrans
+	$('#wrapper').on('click', '.active', function(){
+		//var id_dep = $(this).find('#id_dept').attr('value');
+		
+		//attribut l'id et le nom de l'écran aux variables
+		var id_dep = $(this).find('#id_ecran').attr('value');
+		var nom = $(this).find('#nom_ecran').attr('value');
+		console.log(nom);
+		
+		//affiche le nom de l'écran dans l'interface
+		var ecranss = document.createElement('p');
+		$(ecranss).append('#nom_ecranss');
+		$('#nom_ecranss').append(nom);
+		
+		
+		//affiche l'id de l'écran en console
+		console.log(id_dep);
+		 
+		
+		//affiche la requête sql en objet et en json
+		var myObj = JSON.parse(myJSON);
+		console.log(myObj);
+		console.log(myJSON);
+		
+		
+	    //test
+		if(myObj.nom_ec = "Rapida"){
+		//console.log(myObj.id);
+				}
+		
+		
+		
+		//emet la variable
+		io.emit('depo',id_dep);
+		
+		
+		//----------------------
+		
+		//Donner un nom au depot
+		const n_dep = prompt('Nom du depot');
+		$("#nom_contenu").append(n_dep);
+		
+		
+		//attribut l'id et le nom de l'écran aux variables
+		var ecran = $(this).find('#id_ecran').attr('value');
+		//emet la variable
+		io.emit('depot1',ecran, n_dep);
+		
+		//affiche id ecran et nom du dépot
+		console.log(ecran);
+		console.log(n_dep);
+		
+		
+		
+		
+		$('header').fadeOut(200);
+		$('#ajouter2').fadeOut(200);
+		$('#ajouter').fadeOut(200);
+		$('#wrapper').fadeOut(200);
+		$('#test').fadeOut(200);
+		$('#button_aj').fadeOut(200, function(){
+		$('#wrapper3').fadeIn(200);
+		$('#droite').fadeOut();
+			});
+		
+		});
+	});
+	
+	
+	
+	
 //Quitte l'interface de l'édition des écrans
 	$('#sortir').click(function(){
 		$('#wrapper3').fadeOut(200, function(){	
@@ -145,9 +158,15 @@ $(document).ready(function() {
 			$('#test').fadeIn(200);
 			
 		
+			//vide 
 			var element = document.getElementById("nom_ecranss");
 			while (element.firstChild) {
 				element.removeChild(element.firstChild);
+			}
+			
+			var element1 = document.getElementById("nom_contenu");
+			while (element1.firstChild) {
+				element1.removeChild(element1.firstChild);
 			}
 			
 			
@@ -203,29 +222,7 @@ $('#depose').droppable({
 		//$("#ec11").append(d);
 		//$('#ecc1').append(ecc1);
 		
-        $('#ec1').click(function(){
-			$('#ec1').dblclick(function(){
-				$('#droite').fadeIn(200);
-				});
-		     });
-		
-		 $('#ec2').click(function(){
-			$('#ec2').dblclick(function(){
-				$('#droite').fadeIn(200);
-				});
-		     });
-		
-		 $('#ec3').click(function(){
-			$('#ec3').dblclick(function(){
-				$('#droite').fadeIn(200);
-				});
-		     });
-		
-		 $('#ec4').click(function(){
-			$('#ec4').dblclick(function(){
-				$('#droite').fadeIn(200);
-				});
-		     });
+    
 		
 		$('.ec4s').dblclick(function(){
 				$('#droite').fadeIn(200, function(){
@@ -237,7 +234,7 @@ $('#depose').droppable({
 		
 			$('.fermer1','#depose').fadeIn(function(){
 				$('.fermer1').click(function(){
-						$(this).parent().remove();
+						$(this).parent().parent().remove();
 							});
 						});
 		

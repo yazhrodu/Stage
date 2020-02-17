@@ -86,15 +86,15 @@ io.on('connection', socket => {
     io.on('connection', socket => {
 		console.log("test");
 		connection.query("SELECT nom_ec, adresse_ip, id, id_depot FROM ecrans",function(err,rows){
-			myJSON = JSON.stringify(d);
 			var d = rows;
-				myJSON = JSON.stringify(d);
+			myJSON = JSON.stringify(d);
+			//console.log(myJSON);
 			
 			socket.on('depo',function(id_dep){
 			var id_depp = id_dep;
 			var dep = [];
 			var sql = "SELECT nom_ec FROM ecrans WHERE id = ?";
-				var Noms;
+			var Noms;
 			connection.query(sql, [id_dep], function(err, rows){
 				for (var i = 0; i < rows.length; i++){
          		var currrentNoms = rows[i];
@@ -117,6 +117,80 @@ io.on('connection', socket => {
 				});
 	});
 
+io.on('connection', socket => {
+		console.log("test");
+		connection.query("SELECT*FROM depot",function(err,rows){
+			var dx = rows;
+			myJSONx = JSON.stringify(dx);
+			var Page;
+			var depo = [];
+			
+			for (var i = 0; i < rows.length; i++){
+         		var currrentPage = rows[i];
+         		Page = currrentPage.nom_depot;
+				depo.push(Page);
+				}
+			
+			console.log(Page);
+			console.log(depo);
+			console.log(dx);
+			console.log(myJSONx);
+			
+			
+			
+			socket.on('depot1',function(ecran, n_dep){
+				
+				console.log(n_dep);
+				console.log(ecran);
+			//var ec1234 = page;
+			var n_dep1 = n_dep
+			var ecransx = ecran;
+			//var depo = [];
+			//var Page;
+			var j;
+			var egal;
+			var ik;
+			
+		//----------------------------
+			for(j in depo){
+				if(n_dep1 == depo[j]){
+			   			console.log("egal");
+					egal = "oui";
+					ik = 1;
+			   }else{
+				   console.log("non egale")
+				   egal = "non";
+			   }	
+				
+			}	
+				console.log(egal);
+				console.log(ik);
+			
+			///connection.query("INSERT INTO `depot` (`id_ecran`, `nom_depot`) VALUES ///('"+escape(ecransx)+"','"+escape(n_dep1)+"')", [ecransx, n_dep1], function(err, rows){
+				
+				///console.log("Record insert!!");
+    			///console.log(rows);
+				
+				///console.log("ok");
+				//for (var i = 0; i < rows.length; i++){
+         		//var currrentPage = rows[i];
+         		//Page = currrentPage.nom_ec;
+				//depo.push(Page);
+				//}
+				
+				
+				//var Nom = rows.nom_ec;
+				//console.log(myJSONx);
+				//console.log(Page);
+				
+				//console.log(depo);
+				
+			///});
+			
+		});
+			socket.emit('depot2',myJSONx, rows);
+				});
+	});
 
 
 
