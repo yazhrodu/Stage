@@ -1,3 +1,53 @@
+#id_ecran{
+	display: none;
+}
+
+.fermer{
+	background-color: red;
+	height: 34px;
+	width: 30px;
+	border-bottom-left-radius: 30px;
+	border-bottom-right-radius: 30px;
+	border-top-left-radius: 30px;
+	border-top-right-radius: 30px;
+	position: relative;
+	margin-left: 211px;
+	cursor: pointer;
+}
+
+.fermer h3{
+	margin-left: 6px;
+	color: white;
+	margin-top: -572%;
+}
+
+.fermer1{
+	background-color: red;
+	height: 34px;
+	width: 30px;
+	border-bottom-left-radius: 30px;
+	border-bottom-right-radius: 30px;
+	border-top-left-radius: 30px;
+	border-top-right-radius: 30px;
+	position: relative;
+	margin-left: 80px;
+	cursor: pointer;
+	display: none;
+}
+
+.fermer1 h3{
+	margin-left: 6px;
+	color: white;
+	margin-top: -150%;
+}
+
+.feu{
+	background-color: darkslategrey;
+	border-bottom-left-radius: 30px;
+	border-bottom-right-radius: 30px;
+	border-top-left-radius: 30px;
+	border-top-right-radius: 30px;
+}
 
 header{
 			
@@ -5,10 +55,10 @@ header{
 			padding: 5px;
 			padding-left: 20px;
 		}
+
 header h1{
 	color: white;	
 }
-
 
 body{
 	background-color:lightgrey;
@@ -21,28 +71,26 @@ body{
 	margin-bottom: 20px;
 }		
 
-
 #ajouter2{
 	
 	display: none;
-	padding: 30px;
+	padding: 10px;
+	padding-left: 111px;
 	background-color: aquamarine;
-	margin-top: 50px;
-	
-	
+	margin-top: 75px;
 }
+
 #reduit{
+	margin-left: 585px;
 	height: 350px;
 	width: 400px;
 	display: none;
 }
 
 #wrapper{
-	
-	
 	margin: 0px auto;
 	background-color: white;
-	padding-bottom: 20px;
+	padding-bottom: 50px;
 	padding-left: 100px;
 	padding-right: 20px;
 	padding-top: 20px;
@@ -52,14 +100,18 @@ body{
 	list-style-type: none;
 	padding-left: 0px;
 }
+
+
 #portfolio li{
 	display: inline-block;
-	margin: 10px 1px 10px 1px;
+	margin: 9% 13px 36px 1px;
 }
+
 #portfolio li img{
 	width: 240px;
 	height: 170px;
 	padding: 5px;
+	margin-top: -40%;
 }
 
 #portfolio li img:hover{
@@ -75,93 +127,75 @@ body{
 	padding: 5px;
 }
 
-
-#depose{
-	background-color: beige;
-	height: 100%;
-	width: 100%;
-	margin-top: 18px;
-	display: none;
-	
-	
-	
-}
-
 #ec{
-	width: 170px;
-	background-color: black;
-	padding: 35px;
-	color: white;
-	margin-top: 0px;
-	margin-left: 0px;
-	
-	display: none;
+	margin-left: 15px;
+	height: 742px;
 }
 
 #sortir{
-	width: 40px;
-	height: 40px;
 	background-color: white;
-	margin-bottom: 50px;
-	margin-left: -33px;
-	margin-top: -30px;
-	color: white;
 	cursor: pointer;
 	opacity: 0.5;
-	
+	width: 40px;
+	height: 40px;
+	margin-left: -17px;
+	margin-top: -67px;
+	margin-bottom: 30px;
+}
+.ec4s{
+	margin-bottom: 166px;
 }
 #ec1{
 	width: 100px;
 	height: 100px;
 	background-color: white;
-	margin-bottom: 60px;
-	
+	margin-bottom: -117px;
 	color: white;
-	
+	cursor: grab;
 }
+
 #ec2{
 	width: 100px;
 	height: 100px;
 	background-color: red;
-	margin-bottom: 60px;
-	
+	margin-bottom:  -117px;
 	color: white;
+	cursor: grab;
 
 }
+
 #ec3{
 	width: 100px;
 	height: 100px;
 	background-color: darkblue;
-	margin-bottom: 60px;
-	
+	margin-bottom:  -117px;
 	color: white;
+	cursor: grab;
 
 }
+
 #ec4{
 	width: 100px;
 	height: 100px;
 	background-color: darkgray;
-	margin-bottom: 102px;
-	
+	margin-bottom:  -117px;
 	color: white;
+	cursor: grab;
 	
 }
 
-
 #fc{
 	width: 170px;
-	background-color: black;
 	padding-top: 20px;
 	padding-left: 25px;
 	padding-bottom: 30px;
 	color: white;
-	border-bottom-left-radius: 50px;
-	border-bottom-right-radius: 50px;
-	border-top-left-radius: 50px;
-	
 	margin-left: 0%;
-	display: none;
+	
+	
+	
 }
+
 #fc1{
 	width: 100px;
 	height: 100px;
@@ -170,7 +204,9 @@ body{
 	margin-left: 20px;
 	color: white;
 	
+	
 }
+
 #fc2{
 	width: 100px;
 	height: 100px;
@@ -179,6 +215,7 @@ body{
 	margin-left: 20px;
 	color: white;
 }
+
 #fc3{
 	width: 100px;
 	height: 100px;
@@ -187,6 +224,7 @@ body{
 	margin-left: 20px;
 	color: white;
 }
+
 #fc4{
 	width: 100px;
 	height: 100px;
@@ -195,15 +233,44 @@ body{
 	color: white;
 }
 
-#wrapper2{
-	min-height: 0px;
-	margin: -15px;
+#ligne{
+	background-color:darkslategray;
+	margin-right: 0px;
 }
-#porfolio2{
-	list-style-type: none;
-	padding-left: 0px;
+
+#droite{
+	background-color: green;
+	border-top-left-radius: 50px;
+	border-bottom-left-radius: 50px;
+	display: none;
+	
 }
-#portfolioli{
-	display: inline-block;
-	margin: 0px 0px 0px 0px;
+
+#gauche{
+	background-color:cadetblue;
+	border-top-right-radius: 50px;
+	border-bottom-right-radius: 50px;
+	
+}
+
+#wrapper3{
+	display: none;
+}
+
+#corp{
+	
+	background-color: beige;
+}
+#depose{
+	background-color: aliceblue;
+	padding-bottom: 150px;
+	padding-top: 40px;
+	
+}
+#dep img{
+	margin-left: 258px;
+	margin-top: -25px;
+}
+#dep{
+	text-align: center;
 }

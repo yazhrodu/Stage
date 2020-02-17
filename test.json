@@ -1,0 +1,9 @@
+{
+"id":"89",
+"nom_ec":"Cortona",
+"pages": [
+    { "id":"1", "fonc":"image","fonc":"text" },
+    { "id":"2", "fonc":"image" },
+    { "id":"3", "fonc":"text" }
+  ]
+}

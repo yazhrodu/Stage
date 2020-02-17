@@ -1,0 +1,162 @@
+
+
+.container{
+	background-color: black;
+}
+
+#bleu{
+	background-color: blue;
+	height: 754px;
+	margin-right: 0px;
+}
+
+#vert{
+	background-color: green;
+	border-top-left-radius: 50px;
+	border-bottom-left-radius: 50px;
+}
+#rouge{
+	background-color:cadetblue;
+	border-top-right-radius: 50px;
+	border-bottom-right-radius: 50px;
+}
+
+body{
+	background-color: blue;
+}
+
+#draggable{
+			background-color: blueviolet;
+			height: 200px;
+			width: 200px;
+			margin-left: -400px;	
+		}
+		#draggable2{
+			background-color: blueviolet;
+			height: 200px;
+			width: 200px;
+			margin-left: -400px;	
+		}
+		#draggable3{
+			background-color: blueviolet;
+			height: 200px;
+			width: 200px;
+			margin-left: -400px;	
+		}
+			#test{
+			background-color: red;
+			height: 700px;
+			width: 700px;
+			margin-left: 400px;	
+		}
+		#test2{
+			background-color: aliceblue;
+			height: 400px;
+			width: 100px;
+			margin-top: 400px;
+			margin-right: 400px;
+		}
+		
+		#corps{
+			background-color: aquamarine;
+			height: 1000px;
+			width: 700px;
+		}
+wrapper3{
+	display: none;
+}
+
+#ec{
+	margin-left: 50px;
+}
+
+#sortir{
+	
+	background-color: white;
+	cursor: pointer;
+	opacity: 0.5;
+	width: 40px;
+	height: 40px;
+	margin-left: -50px;
+	margin-top: -60px;
+	margin-bottom: 30px;
+}
+
+#ec1{
+	width: 100px;
+	height: 100px;
+	background-color: white;
+	margin-bottom: 60px;
+	
+	color: white;
+	
+}
+#ec2{
+	width: 100px;
+	height: 100px;
+	background-color: red;
+	margin-bottom: 60px;
+	
+	color: white;
+
+}
+#ec3{
+	width: 100px;
+	height: 100px;
+	background-color: darkblue;
+	margin-bottom: 60px;
+
+	color: white;
+
+}
+#ec4{
+	width: 100px;
+	height: 100px;
+	background-color: darkgray;
+	margin-bottom: 102px;
+	
+	color: white;
+	
+}
+
+#fc{
+	width: 170px;
+	padding-top: 20px;
+	padding-left: 25px;
+	padding-bottom: 30px;
+	color: white;
+	
+	margin-left: 0%;
+}
+#fc1{
+	width: 100px;
+	height: 100px;
+	background-color: white;
+	margin-bottom: 60px;
+	margin-left: 20px;
+	color: white;
+	
+}
+#fc2{
+	width: 100px;
+	height: 100px;
+	background-color: red;
+	margin-bottom: 60px;
+	margin-left: 20px;
+	color: white;
+}
+#fc3{
+	width: 100px;
+	height: 100px;
+	background-color: darkblue;
+	margin-bottom: 60px;
+	margin-left: 20px;
+	color: white;
+}
+#fc4{
+	width: 100px;
+	height: 100px;
+	background-color: darkgray;
+	margin-left: 20px;
+	color: white;
+}
