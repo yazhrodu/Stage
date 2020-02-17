@@ -42,15 +42,14 @@ $(document).ready(function() {
 		var i,nom ="";
 	//Active l'interface d'édition pour les écrans
 	$('#wrapper').on('click', '.active', function(){
-		var id_dep = $(this).find('#id_dept').attr('value');
-		//var id_dep = $(this).find('#id_ecran').attr('value');
+		//var id_dep = $(this).find('#id_dept').attr('value');
+		var id_dep = $(this).find('#id_ecran').attr('value');
 		
 		var nom = $(this).find('#nom_ecran').attr('value');
 		console.log(nom);
 		
 		var ecranss = document.createElement('p');
 		$(ecranss).append('#nom_ecranss');
-		$("nom_ecranss_1").append(ecranss);
 		$('#nom_ecranss').append(nom);
 		
 		
@@ -156,6 +155,10 @@ $(document).ready(function() {
 			
 		});
 	
+	
+	
+
+	
 //Augmente l'opacité de l'icone sortie quand le curseur viens sur l'icone
 	$("#sortir").mouseover(function(){
 		$(this).css("opacity", "0.80")
@@ -224,11 +227,20 @@ $('#depose').droppable({
 				});
 		     });
 		
-		$('.ec4s').click(function(){
+		$('.ec4s').dblclick(function(){
 				$('#droite').fadeIn(200, function(){
-					
+					$('.ec4s').click(function(){
+						$('#droite').fadeOut();
+						});
 				});
 		     });
+		
+			$('.fermer1','#depose').fadeIn(function(){
+				$('.fermer1').click(function(){
+						$(this).parent().remove();
+							});
+						});
+		
 		
 		
     	}
