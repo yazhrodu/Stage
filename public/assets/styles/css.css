@@ -38,7 +38,7 @@
 .fermer1 h3{
 	margin-left: 6px;
 	color: white;
-	margin-top: -150%;
+	margin-top: -370%;
 }
 
 .feu{
@@ -142,14 +142,13 @@ body{
 	margin-top: -67px;
 	margin-bottom: 30px;
 }
-.ec4s{
-	margin-bottom: 166px;
+.ecc{
+	margin-bottom: 60px;
 }
 #ec1{
 	width: 100px;
 	height: 100px;
 	background-color: white;
-	margin-bottom: -117px;
 	color: white;
 	cursor: grab;
 }
@@ -158,7 +157,6 @@ body{
 	width: 100px;
 	height: 100px;
 	background-color: red;
-	margin-bottom:  -117px;
 	color: white;
 	cursor: grab;
 
@@ -168,7 +166,6 @@ body{
 	width: 100px;
 	height: 100px;
 	background-color: darkblue;
-	margin-bottom:  -117px;
 	color: white;
 	cursor: grab;
 
@@ -178,7 +175,6 @@ body{
 	width: 100px;
 	height: 100px;
 	background-color: darkgray;
-	margin-bottom:  -117px;
 	color: white;
 	cursor: grab;
 	
