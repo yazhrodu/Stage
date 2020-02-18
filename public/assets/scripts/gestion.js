@@ -116,8 +116,12 @@ $(document).ready(function() {
 		//----------------------
 		
 		//Donner un nom au depot
-		const n_dep = prompt('Nom du depot');
+		
+	
+  		const n_dep = prompt('Nom du depot');
 		$("#nom_contenu").append(n_dep);
+		
+		
 		
 		
 		//attribut l'id et le nom de l'écran aux variables

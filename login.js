@@ -149,7 +149,7 @@ io.on('connection', socket => {
 			//var Page;
 			var j;
 			var egal;
-			var ik;
+			var ik = 0;
 			
 		//----------------------------
 			for(j in depo){
@@ -162,7 +162,17 @@ io.on('connection', socket => {
 				   egal = "non";
 			   }	
 				
-			}	
+			}	if(ik!=1){
+				connection.query("INSERT INTO `depot` (`id_ecran`, `nom_depot`) VALUES ('"+escape(ecransx)+"','"+escape(n_dep1)+"')", [ecransx, n_dep1], function(err, rows){
+				
+				console.log("Record insert!!");
+    			console.log(rows);
+				
+				console.log("ok");
+			});
+			}else{
+				console.log('déja créer dans la base de données');
+			}
 				console.log(egal);
 				console.log(ik);
 			
