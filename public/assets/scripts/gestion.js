@@ -1,3 +1,4 @@
+
 /*******************************************************uuuuu********************************************************************************m****************/
 /************************************************************************************************************************************************kkkkkk*******/ /*************************************************************************************************************************************************************/
 var io = io();
@@ -118,8 +119,8 @@ $(document).ready(function() {
 		//Donner un nom au depot
 		
 	
-  		const n_dep = prompt('Nom du depot');
-		$("#nom_contenu").append(n_dep);
+  		/*const n_dep = prompt('Nom du depot');
+		$("#nom_contenu").append(n_dep);*/
 		
 		
 		
@@ -127,11 +128,11 @@ $(document).ready(function() {
 		//attribut l'id et le nom de l'écran aux variables
 		var ecran = $(this).find('#id_ecran').attr('value');
 		//emet la variable
-		io.emit('depot1',ecran, n_dep);
+		//io.emit('depot1',ecran, n_dep);
 		
 		//affiche id ecran et nom du dépot
 		console.log(ecran);
-		console.log(n_dep);
+		//console.log(n_dep);
 		
 		
 		
@@ -241,67 +242,27 @@ $( ".dropfalsee" ).sortable({
 	
 		   
 		   $('#ec1','#depose').fadeIn(function(){
-				c=1;
-				if(c==1){
 			   data.push("ec1");
-			
-					console.log(data);
-			   }
+			   console.log(data);
 			});
 		   
 		   
-		   
-		for(var i = 0; i < nb_depose; i++){
-			console.log("marche");
-			
-			
-			
 			$('#ec2','#depose').fadeIn(function(){
 				c=2;
 				 data.push("ec2");
 					console.log(data);
 			});
-			
-			$('#ec3','#depose').fadeIn(function(){
+		   
+		   $('#ec3','#depose').fadeIn(function(){
 				c=3;
 				 data.push("ec3");
 					//console.log(data);
 				
 			});
 			
-			$('#ec4','#depose').fadeIn(function(){
-				c=4;
-				 data.push("ec4");
-					//console.log(data);
-			});
-			
-			
-					
-			
-			if(c==1){
-				
-			   //console.log("#ec1");
-			   }
-			
-			
-			if(c==2){
-				
-			   //console.log("#ec2");
-			   }
-			
-			if(c==3){
-				
-				//console.log("#ec3");
-				}
-			
-			
-			if(c==4){
-			
-		   	//console.log("#ec4");
-		   		}
-		
-		
-		
+		   
+		for(var i = 0; i < nb_depose; i++){
+			console.log("marche");
 		}
 		console.log(data);
 		   

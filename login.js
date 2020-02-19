@@ -84,7 +84,7 @@ io.on('connection', socket => {
 
 		 
     io.on('connection', socket => {
-		console.log("test");
+
 		connection.query("SELECT nom_ec, adresse_ip, id, id_depot FROM ecrans",function(err,rows){
 			var d = rows;
 			myJSON = JSON.stringify(d);
@@ -118,7 +118,7 @@ io.on('connection', socket => {
 	});
 
 io.on('connection', socket => {
-		console.log("test");
+	
 		connection.query("SELECT*FROM depot",function(err,rows){
 			var dx = rows;
 			myJSONx = JSON.stringify(dx);
@@ -131,9 +131,9 @@ io.on('connection', socket => {
 				depo.push(Page);
 				}
 			
-			console.log(Page);
+			//console.log(Page);
 			console.log(depo);
-			console.log(dx);
+			//console.log(dx);
 			console.log(myJSONx);
 			
 			
