@@ -231,10 +231,18 @@ $( ".dropfalsee" ).sortable({
 		   
 		   var nb_depose,i,id_page,nom_page,c;
 		var Data ={
-				model: [
-    			{ id:id_page, models:nom_page},
-					]
+				model:[]
+					
 			}
+		myObj = {
+  "name":"John",
+  "age":30,
+  "cars": {
+    "car1":"Ford",
+    "car2":"BMW",
+    "car3":"Fiat"
+  }
+ }
 		
 		
 		nb_depose = $('.ec4s','#depose').length;
@@ -243,16 +251,19 @@ $( ".dropfalsee" ).sortable({
 		   
 		   $('#ec1','#depose').fadeIn(function(){
 			   var v = "ec1";
-			   Data.nom_page = v;
+			   var vv = "1";
+			   Data.model.models = v;
+			    Data.model.id = vv;
 		
 			   //console.log(Data);
 			});
 		   
 		   
 			$('#ec2','#depose').fadeIn(function(){
-				c=2;
-				 data.push("ec2");
-					console.log(data);
+				   var v = "ec2";
+			   var vv = "2";
+			   Data.model.models = v;
+			    Data.model.id = vv;
 			});
 		   
 		   $('#ec3','#depose').fadeIn(function(){
