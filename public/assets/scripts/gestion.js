@@ -230,27 +230,42 @@ $( ".dropfalsee" ).sortable({
 		  console.log("Drop marche");
 		   var model;
 		   var nb_depose,i,id_page,nom_page,c;
-		var Data =
-					"dataa:"[
-						{"model":model, "data":"[]"}
-					];
-		var Data1 = JSON.parse(Data);
+
+		var depo = [];
 			
 	
+
+		var Data ={
+				model: [
+    			{ id:id_page, models:[]},
+					]
+			}
+
 		
 		
 		nb_depose = $('.ec4s','#depose').length;
 		console.log(nb_depose);
 	
-		   
-		   
+	$('#ec1','#depose').fadeIn(function(){
+			   var v = "ec1";
+				 var vvv = "ec3";
+				var vv = "ec2";
+				depo.push(vv);
+			   Data.id = v;
+				Data.nom_page = depo;
+				Data.models = vv;
+			
+		
+			   //console.log(Data);
+			});
+	
+
 		   
 		   
 			$('#ec2','#depose').fadeIn(function(){
-				   var v = "ec2";
-			   var vv = "2";
-			   Data.model.models = v;
-			    Data.model.id = vv;
+				c=2;
+				 data.push("ec2");
+					console.log(data);
 			});
 		   
 		   $('#ec3','#depose').fadeIn(function(){
@@ -263,22 +278,15 @@ $( ".dropfalsee" ).sortable({
 		   
 		for(var i = 0; i < nb_depose; i++){
 			console.log("marche");
-			$('#ec1','#depose').fadeIn(function(){
-			   var v = "ec1";
-
-			   model = v;
-			
 		
-			   //console.log(Data);
-			});
 		}
 		//console.log(data);
 		  var data1 = JSON.stringify(Data);
 		   
 		   //console.log(data);
 		   //Data.nom_page = data;
-		   console.log(Data1);
-		   console.log(data1);
+		   console.log(Data);
+		
 		   
 	  },
     }).droppable({
