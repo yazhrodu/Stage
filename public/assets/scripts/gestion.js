@@ -228,35 +228,22 @@ $( ".dropfalsee" ).sortable({
       revert: "invalid",
 	   receive: function (event, ui){
 		  console.log("Drop marche");
-		   
+		   var model;
 		   var nb_depose,i,id_page,nom_page,c;
-		var Data ={
-				model:[]
-					
-			}
-		myObj = {
-  "name":"John",
-  "age":30,
-  "cars": {
-    "car1":"Ford",
-    "car2":"BMW",
-    "car3":"Fiat"
-  }
- }
+		var Data =
+					"dataa:"[
+						{"model":model, "data":"[]"}
+					];
+		var Data1 = JSON.parse(Data);
+			
+	
 		
 		
 		nb_depose = $('.ec4s','#depose').length;
 		console.log(nb_depose);
 	
 		   
-		   $('#ec1','#depose').fadeIn(function(){
-			   var v = "ec1";
-			   var vv = "1";
-			   Data.model.models = v;
-			    Data.model.id = vv;
-		
-			   //console.log(Data);
-			});
+		   
 		   
 		   
 			$('#ec2','#depose').fadeIn(function(){
@@ -274,15 +261,23 @@ $( ".dropfalsee" ).sortable({
 			});
 			
 		   
-		//for(var i = 0; i < nb_depose; i++){
-			//console.log("marche");
-		//}
+		for(var i = 0; i < nb_depose; i++){
+			console.log("marche");
+			$('#ec1','#depose').fadeIn(function(){
+			   var v = "ec1";
+
+			   model = v;
+			
+		
+			   //console.log(Data);
+			});
+		}
 		//console.log(data);
 		  var data1 = JSON.stringify(Data);
 		   
 		   //console.log(data);
 		   //Data.nom_page = data;
-		   console.log(Data);
+		   console.log(Data1);
 		   console.log(data1);
 		   
 	  },
