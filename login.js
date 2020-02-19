@@ -137,7 +137,7 @@ io.on('connection', socket => {
 			console.log(myJSONx);
 			
 			
-			
+			//insertion de l'id écran et du nom depot
 			socket.on('depot1',function(ecran, n_dep){
 				
 				console.log(n_dep);
@@ -202,7 +202,49 @@ io.on('connection', socket => {
 				});
 	});
 
-
+io.on('connection', socket => {
+		
+		connection.query("SELECT id_page, nom_page FROM ecrans",function(err,rows){
+			var d = rows;
+			myJSON = JSON.stringify(d);
+			
+			
+			var Data ={
+				model: [
+    			{ id:"id_page", "models":"nom_page", data:"tab" },
+					]
+			}
+			
+			
+			
+			//console.log(myJSON);
+			
+			socket.on('depo',function(id_dep){
+			var id_depp = id_dep;
+			var dep = [];
+			var sql = "SELECT nom_ec FROM ecrans WHERE id = ?";
+			var Noms;
+			connection.query(sql, [id_dep], function(err, rows){
+				for (var i = 0; i < rows.length; i++){
+         		var currrentNoms = rows[i];
+         		Noms = currrentNoms.nom_ec;
+				dep.push(Noms);
+				}
+				
+				var d = rows;
+				myJSON = JSON.stringify(d);
+				//var Nom = rows.nom_ec;
+				console.log(myJSON);
+				console.log(Noms);
+				console.log(rows);
+				console.log(dep);
+				
+			});
+		});
+			
+			
+				});
+	});
 
 //Authentification
 app.post('/auth', function(request, response) {

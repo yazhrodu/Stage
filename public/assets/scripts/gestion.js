@@ -198,15 +198,13 @@ $(document).ready(function() {
 //drag
    
 	
-	$( "#depose" ).sortable({
-      revert: "invalid"
-    });
+	
 	
 	$( ".ec4s" ).draggable({
-      connectToSortable: "#depose",
       helper: "clone",
-      revert: "invalid"
-    });
+      revert: "invalid",
+		connectToSortable: "#depose"
+	});
 	$( "ul, li" ).disableSelection();
   
 	
@@ -216,17 +214,108 @@ $(document).ready(function() {
 						});
 	$('#fc3').draggable();
 	
-	
+	$('#ec4','#depose').fadeOut(function(){
+				c=4;
+				 data.push("ec4");
+					console.log(data);
+			});
 	//drop
-$('#depose').droppable({
+	//console.log("Drop marche");
+	
+	
+$( ".dropfalsee" ).sortable({
+      revert: "invalid",
+	   receive: function (event, ui){
+		  console.log("Drop marche");
+		   
+		   var nb_depose,i,id_page,nom_page,c;
+		var Data ={
+				model: [
+    			{ id:id_page, models:nom_page},
+					]
+			}
+		var data = [];
+		
+		nb_depose = $('.ec4s','#depose').length;
+		console.log(nb_depose);
+	
+		   
+		   $('#ec1','#depose').fadeIn(function(){
+				c=1;
+				if(c==1){
+			   data.push("ec1");
+			
+					console.log(data);
+			   }
+			});
+		   
+		   
+		   
+		for(var i = 0; i < nb_depose; i++){
+			console.log("marche");
+			
+			
+			
+			$('#ec2','#depose').fadeIn(function(){
+				c=2;
+				 data.push("ec2");
+					console.log(data);
+			});
+			
+			$('#ec3','#depose').fadeIn(function(){
+				c=3;
+				 data.push("ec3");
+					//console.log(data);
+				
+			});
+			
+			$('#ec4','#depose').fadeIn(function(){
+				c=4;
+				 data.push("ec4");
+					//console.log(data);
+			});
+			
+			
+					
+			
+			if(c==1){
+				
+			   //console.log("#ec1");
+			   }
+			
+			
+			if(c==2){
+				
+			   //console.log("#ec2");
+			   }
+			
+			if(c==3){
+				
+				//console.log("#ec3");
+				}
+			
+			
+			if(c==4){
+			
+		   	//console.log("#ec4");
+		   		}
+		
+		
+		
+		}
+		console.log(data);
+		   
+		   
+	  },
+    }).droppable({
     drop : function(){
-		console.log("Drop marche");
+		
 		//var ecc1 = document.getElementById("#ec1");
 		//var d = $(ecc1).clone();
 		//$("#ec11").append(d);
 		//$('#ecc1').append(ecc1);
 		
-    
+
 		
 		$('.ec4s').dblclick(function(){
 				$('#droite').fadeIn(200, function(){
@@ -235,17 +324,25 @@ $('#depose').droppable({
 						});
 				});
 		     });
-		
+			
+			
 			$('.fermer1','#depose').fadeIn(function(){
 				$('.fermer1').click(function(){
 						$(this).parent().parent().remove();
+				nb_depose = $('.ec4s','#depose').length;
+				console.log(nb_depose);
 							});
-						});
-		
-		
-		
-    	}
+						
 	});
+			
+		
+		
+		
+
+		
+		
+		    	}
+});
 
 	
 	
