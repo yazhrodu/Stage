@@ -235,15 +235,17 @@ $( ".dropfalsee" ).sortable({
     			{ id:id_page, models:nom_page},
 					]
 			}
-		var data = [];
+		
 		
 		nb_depose = $('.ec4s','#depose').length;
 		console.log(nb_depose);
 	
 		   
 		   $('#ec1','#depose').fadeIn(function(){
-			   data.push("ec1");
-			   console.log(data);
+			   var v = "ec1";
+			   Data.nom_page = v;
+		
+			   //console.log(Data);
 			});
 		   
 		   
@@ -261,11 +263,16 @@ $( ".dropfalsee" ).sortable({
 			});
 			
 		   
-		for(var i = 0; i < nb_depose; i++){
-			console.log("marche");
-		}
-		console.log(data);
+		//for(var i = 0; i < nb_depose; i++){
+			//console.log("marche");
+		//}
+		//console.log(data);
+		  var data1 = JSON.stringify(Data);
 		   
+		   //console.log(data);
+		   //Data.nom_page = data;
+		   console.log(Data);
+		   console.log(data1);
 		   
 	  },
     }).droppable({

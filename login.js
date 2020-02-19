@@ -132,9 +132,9 @@ io.on('connection', socket => {
 				}
 			
 			//console.log(Page);
-			console.log(depo);
+			//console.log(depo);
 			//console.log(dx);
-			console.log(myJSONx);
+			//console.log(myJSONx);
 			
 			
 			//insertion de l'id écran et du nom depot
