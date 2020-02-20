@@ -231,30 +231,20 @@ $( ".dropfalsee" ).sortable({
 		   var model;
 		   var nb_depose,i,id_page,nom_page,c;
 
-		var depo = [];
+		var depo = []
 			
 	
 
-		var Data ={
-				model: [
-    			{ id:id_page, models:[]},
-					]
-			}
+		var Data ={}
 
 		
 		
 		nb_depose = $('.ec4s','#depose').length;
 		console.log(nb_depose);
 	
-	$('#ec1','#depose').fadeIn(function(){
-			   var v = "ec1";
-				 var vvv = "ec3";
-				var vv = "ec2";
-				depo.push(vv);
-			   Data.id = v;
-				Data.nom_page = depo;
-				Data.models = vv;
-			
+var b,v,vv,t;
+	/*$('#ec1','#depose').fadeIn(function(){
+		b=1;
 		
 			   //console.log(Data);
 			});
@@ -263,22 +253,58 @@ $( ".dropfalsee" ).sortable({
 		   
 		   
 			$('#ec2','#depose').fadeIn(function(){
-				c=2;
-				 data.push("ec2");
-					console.log(data);
-			});
-		   
-		   $('#ec3','#depose').fadeIn(function(){
-				c=3;
-				 data.push("ec3");
-					//console.log(data);
+				b=2;
 				
 			});
-			
+
+		   $('#ec3','#depose').fadeIn(function(){
+				  v = "3";
+				 vv = "ec3";
+				depo.push(vv);
+			   	Data.id = v;
+				Data.nom_page = depo;
+					
+					//console.log(data);
+				
+			});*/
+
+	
+   
 		   
 		for(var i = 0; i < nb_depose; i++){
 			console.log("marche");
+			var tt = [];
+			var texts=[];
+			var texts1=[];
+			 $('#depose .n_page').each(function(){
+        texts.push($(this).text());
+				 console.log(texts);
+				 tt = [texts]
+				 Data.model = texts;
+    });
+			$('#depose .i').each(function(){
+        texts1.push($(this).text());
+				 console.log(texts1);
+				 tt = [texts1]
+				 Data.model1 = texts1;
+    });
+/*
+			if(b==1){
+				v = "1";
+				 vv = "ec1";
+				depo.push(vv);
+			   Data.id = v;
+				Data.nom_page = depo;
+			}
+			if(b==2){
+				 v = "2";
+				 vv = "ec2";
+				depo.push(vv);
+			   Data.id = v;
+				Data.nom_page = depo;
+			}*/
 		
+
 		}
 		//console.log(data);
 		  var data1 = JSON.stringify(Data);
@@ -286,6 +312,7 @@ $( ".dropfalsee" ).sortable({
 		   //console.log(data);
 		   //Data.nom_page = data;
 		   console.log(Data);
+		   console.log(data1);
 		
 		   
 	  },
@@ -313,7 +340,15 @@ $( ".dropfalsee" ).sortable({
 						$(this).parent().parent().remove();
 				nb_depose = $('.ec4s','#depose').length;
 				console.log(nb_depose);
-							});
+					for(var i = 0; i < nb_depose; i++){
+			console.log("marche");
+			var texts=[];
+			 $('#depose .n_page').each(function(){
+        		texts.push($(this).text());
+				 console.log(texts);
+    					});
+					}
+				});
 						
 	});
 			
@@ -322,8 +357,7 @@ $( ".dropfalsee" ).sortable({
 		
 
 		
-		
-		    	}
+				    	}
 });
 
 	
