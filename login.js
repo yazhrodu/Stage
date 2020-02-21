@@ -84,7 +84,6 @@ io.on('connection', socket => {
 
 		 
     io.on('connection', socket => {
-		console.log("test");
 		connection.query("SELECT nom_ec, adresse_ip, id, id_depot FROM ecrans",function(err,rows){
 			var d = rows;
 			myJSON = JSON.stringify(d);
@@ -118,8 +117,7 @@ io.on('connection', socket => {
 	});
 
 io.on('connection', socket => {
-		console.log("test");
-		connection.query("SELECT*FROM depot",function(err,rows){
+		connection.query("SELECT jsonn FROM depot",function(err,rows){
 			var dx = rows;
 			myJSONx = JSON.stringify(dx);
 			var Page;
@@ -143,19 +141,19 @@ io.on('connection', socket => {
 				console.log(data1);
 				
 			//var ec1234 = page;
-			connection.query("DELETE FROM depot", function(err, result){
+			/*connection.query("UPDATE depot SET jsonn = NULL WHERE id = 152 ", function(err, result){
 				console.log(result);
 				
 				console.log("Record delete!!");	
-			});
-				connection.query("INSERT INTO `depot` (`jsonn`) VALUES ('"+data1+"')", [data1], function(err, rows){
+			});*/
+				connection.query("UPDATE depot SET jsonn = '"+data1+"' ", [data1], function(err, rows){
 				console.log(rows);
 				console.log("Record insert!!");				
 				console.log("ok");
 				});
 			
 		});
-			socket.emit('depot2',myJSONx, rows);
+			socket.emit('depot2x',myJSONx);
 				});
 	});
 
@@ -202,7 +200,7 @@ io.on('connection', socket => {
 			
 				});
 	
-		connection.query("SELECT jsonn FROM depot",function(err,rows){
+		/*connection.query("SELECT jsonn FROM depot",function(err,rows){
 			var pott = [];
 			var Nomss;
 //stock le nom de l'écran et l'id
@@ -218,7 +216,7 @@ io.on('connection', socket => {
 			
        	
 		
-    		});
+    		});*/
 	});
 
 //Authentification

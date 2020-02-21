@@ -74,6 +74,19 @@ $(document).ready(function() {
 	
 //2eme partie
 
+	io.on('depot2x',function(myJSONx){
+			$('#wrapper').on('click', '.active', function(){
+				var obj =JSON.parse(myJSONx); 
+				obj.jsonn = eval("(" + obj.jsonn + ")");
+				console.log(myJSONx+"***********************************************************");
+				console.log(eval(obj)+"****************1111111111111111111111111111111******************************");
+		});
+	});
+	
+	
+	
+	
+	
 	
 	io.on('depot',function(myJSON, rows){
 		var i,nom ="";
@@ -144,6 +157,7 @@ $(document).ready(function() {
 		$('#test').fadeOut(200);
 		$('#button_aj').fadeOut(200, function(){
 		$('#wrapper3').fadeIn(200);
+		
 		$('#droite').fadeOut();
 			});
 		
@@ -205,12 +219,17 @@ $(document).ready(function() {
 	$( "ul, li" ).disableSelection();
   
 	
+	//chargement de l'interface
+
+	
+	
+	
 	
 	//drop
 	//console.log("Drop marche");
 	
 	//ajoute l'icone pour fermer la page
-	$(".ecran").append('<div class="fermer1"><h3>X</h3></div>');
+	$(".ecran").append('<div class="fermer1"><h3>X</h3></div><div class="f"></div>');
 	var gfg= 0;
 	
 	$( ".dropfalsee" ).sortable({
@@ -225,8 +244,17 @@ $(document).ready(function() {
 			  	var model =  $(this).attr("model");
 			   //{mode:model, data[]}
 			   	data.push({mode:model, data:[]});
-		   })
-   
+		   });
+		   
+		   $( ".f, #depose" ).mouseup(function() {
+			   console.log("testtttttttttttttttttttttttttttttttttttt")
+$("#depose .ecran").each(function(){
+			  	var model =  $(this).attr("model");
+			   //{mode:model, data[]}
+			   	data.push({mode:model, data:[]});
+		   });
+
+    });
 		   
 		      console.log("_________________________________");
 		   console.log(data);
@@ -238,10 +266,36 @@ $(document).ready(function() {
 	  },
     }).droppable({
     drop : function(){
-	nb_depose = $('.ecran','#depose').length;
-		console.log(nb_depose+"tes0");
+
+	
+
+		/*var test = 1;
+		var animals =[];
+		animals.push("test");*/
+		/*$( ".f, #depose" )
+  .mouseup(function() {
+   console.log("up");
+   var data = [];
+		   var data1;
+		   $("#depose .ecran").each(function(){
+			  	var model =  $(this).attr("model");
+			   //{mode:model, data[]}
+			   	data.push({mode:model, data:[]});
+		   })
+   
+		   
+		      console.log("_________________________________");
+		   console.log(data);
+		   data1 = JSON.stringify(data);
+		   console.log(data1);
+		   io.emit('depot11',data1);
+  })
+  .mousedown(function() {
+   console.log("down");
+  });*/
 		
-		$('.ecran').dblclick(function(){
+		
+		$('.ecran','#depose').dblclick(function(){
 				$('#droite').fadeIn(200, function(){
 					$('.ecran').click(function(){
 						$('#droite').fadeOut();
@@ -255,6 +309,20 @@ $(document).ready(function() {
 			$('.fermer1','#depose').fadeIn(function(){
 				$('.fermer1').click(function(){
 						$(this).parent().remove();
+						 var data = [];
+		   var data1;
+		   $("#depose .ecran").each(function(){
+			  	var model =  $(this).attr("model");
+			   //{mode:model, data[]}
+			   	data.push({mode:model, data:[]});
+		   })
+   
+		   
+		      console.log("_________________________________");
+		   console.log(data);
+		   data1 = JSON.stringify(data);
+		   console.log(data1);
+		   io.emit('depot11',data1);
 					
 					});
 				});
