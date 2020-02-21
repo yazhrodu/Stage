@@ -151,6 +151,7 @@ body{
 	background-color: white;
 	color: white;
 	cursor: grab;
+	margin-top: 22px;
 }
 
 #ec2{
@@ -159,6 +160,7 @@ body{
 	background-color: red;
 	color: white;
 	cursor: grab;
+	margin-top: 22px;
 
 }
 
@@ -168,6 +170,7 @@ body{
 	background-color: darkblue;
 	color: white;
 	cursor: grab;
+	margin-top: 22px;
 
 }
 
@@ -177,6 +180,7 @@ body{
 	background-color: darkgray;
 	color: white;
 	cursor: grab;
+	margin-top: 22px;
 	
 }
 

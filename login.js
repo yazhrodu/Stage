@@ -6,7 +6,7 @@ var bodyParser = require('body-parser');
 var path = require('path');
 
 var app = express();
-const server = require('http').createServer(app);
+var server = require('http').createServer(app);
 var io = require('socket.io').listen(server);
 
 
@@ -84,7 +84,7 @@ io.on('connection', socket => {
 
 		 
     io.on('connection', socket => {
-
+		console.log("test");
 		connection.query("SELECT nom_ec, adresse_ip, id, id_depot FROM ecrans",function(err,rows){
 			var d = rows;
 			myJSON = JSON.stringify(d);
@@ -118,7 +118,7 @@ io.on('connection', socket => {
 	});
 
 io.on('connection', socket => {
-	
+		console.log("test");
 		connection.query("SELECT*FROM depot",function(err,rows){
 			var dx = rows;
 			myJSONx = JSON.stringify(dx);
@@ -131,71 +131,28 @@ io.on('connection', socket => {
 				depo.push(Page);
 				}
 			
-			//console.log(Page);
-			//console.log(depo);
-			//console.log(dx);
-			//console.log(myJSONx);
+			console.log(Page);
+			console.log(depo);
+			console.log(dx);
+			console.log(myJSONx);
 			
 			
 			//insertion de l'id écran et du nom depot
-			socket.on('depot1',function(ecran, n_dep){
+			socket.on('depot11',function(data1){
 				
-				console.log(n_dep);
-				console.log(ecran);
+				console.log(data1);
+				
 			//var ec1234 = page;
-			var n_dep1 = n_dep
-			var ecransx = ecran;
-			//var depo = [];
-			//var Page;
-			var j;
-			var egal;
-			var ik = 0;
-			
-		//----------------------------
-			for(j in depo){
-				if(n_dep1 == depo[j]){
-			   			console.log("egal");
-					egal = "oui";
-					ik = 1;
-			   }else{
-				   console.log("non egale")
-				   egal = "non";
-			   }	
+			connection.query("DELETE FROM depot", function(err, result){
+				console.log(result);
 				
-			}	if(ik!=1){
-				connection.query("INSERT INTO `depot` (`id_ecran`, `nom_depot`) VALUES ('"+escape(ecransx)+"','"+escape(n_dep1)+"')", [ecransx, n_dep1], function(err, rows){
-				
-				console.log("Record insert!!");
-    			console.log(rows);
-				
-				console.log("ok");
+				console.log("Record delete!!");	
 			});
-			}else{
-				console.log('déja créer dans la base de données');
-			}
-				console.log(egal);
-				console.log(ik);
-			
-			///connection.query("INSERT INTO `depot` (`id_ecran`, `nom_depot`) VALUES ///('"+escape(ecransx)+"','"+escape(n_dep1)+"')", [ecransx, n_dep1], function(err, rows){
-				
-				///console.log("Record insert!!");
-    			///console.log(rows);
-				
-				///console.log("ok");
-				//for (var i = 0; i < rows.length; i++){
-         		//var currrentPage = rows[i];
-         		//Page = currrentPage.nom_ec;
-				//depo.push(Page);
-				//}
-				
-				
-				//var Nom = rows.nom_ec;
-				//console.log(myJSONx);
-				//console.log(Page);
-				
-				//console.log(depo);
-				
-			///});
+				connection.query("INSERT INTO `depot` (`jsonn`) VALUES ('"+data1+"')", [data1], function(err, rows){
+				console.log(rows);
+				console.log("Record insert!!");				
+				console.log("ok");
+				});
 			
 		});
 			socket.emit('depot2',myJSONx, rows);
@@ -244,6 +201,24 @@ io.on('connection', socket => {
 			
 			
 				});
+	
+		connection.query("SELECT jsonn FROM depot",function(err,rows){
+			var pott = [];
+			var Nomss;
+//stock le nom de l'écran et l'id
+
+         		var currrentNomss = rows;
+         		Noms = currrentNomss.jsonn;
+				pott.push(Nomss);
+	
+
+			
+		console.log("************************************************************");
+			console.log(pott);
+			
+       	
+		
+    		});
 	});
 
 //Authentification

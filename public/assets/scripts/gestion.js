@@ -197,167 +197,71 @@ $(document).ready(function() {
 
 
 //drag
-   
-	
-	
-	
-	$( ".ec4s" ).draggable({
+	$( ".ecran" ).draggable({
       helper: "clone",
       revert: "invalid",
-		connectToSortable: "#depose"
+		connectToSortable: ".dropfalsee"
 	});
 	$( "ul, li" ).disableSelection();
   
 	
-	$('#fc2').draggable({
-		
-		helper: "clone"
-						});
-	$('#fc3').draggable();
 	
-	$('#ec4','#depose').fadeOut(function(){
-				c=4;
-				 data.push("ec4");
-					console.log(data);
-			});
 	//drop
 	//console.log("Drop marche");
 	
+	//ajoute l'icone pour fermer la page
+	$(".ecran").append('<div class="fermer1"><h3>X</h3></div>');
+	var gfg= 0;
 	
-$( ".dropfalsee" ).sortable({
+	$( ".dropfalsee" ).sortable({
       revert: "invalid",
 	   receive: function (event, ui){
+		   
+		   
 		  console.log("Drop marche");
-		   var model;
-		   var nb_depose,i,id_page,nom_page,c;
-
-		var depo = []
-			
-	
-
-		var Data ={}
-
-		
-		
-		nb_depose = $('.ec4s','#depose').length;
-		console.log(nb_depose);
-	
-var b,v,vv,t;
-	/*$('#ec1','#depose').fadeIn(function(){
-		b=1;
-		
-			   //console.log(Data);
-			});
-	
-
-		   
-		   
-			$('#ec2','#depose').fadeIn(function(){
-				b=2;
-				
-			});
-
-		   $('#ec3','#depose').fadeIn(function(){
-				  v = "3";
-				 vv = "ec3";
-				depo.push(vv);
-			   	Data.id = v;
-				Data.nom_page = depo;
-					
-					//console.log(data);
-				
-			});*/
-
-	
+		   var data = [];
+		   var data1;
+		   $("#depose .ecran").each(function(){
+			  	var model =  $(this).attr("model");
+			   //{mode:model, data[]}
+			   	data.push({mode:model, data:[]});
+		   })
    
 		   
-		for(var i = 0; i < nb_depose; i++){
-			console.log("marche");
-			var tt = [];
-			var texts=[];
-			var texts1=[];
-			 $('#depose .n_page').each(function(){
-        texts.push($(this).text());
-				 console.log(texts);
-				 tt = [texts]
-				 Data.model = texts;
-    });
-			$('#depose .i').each(function(){
-        texts1.push($(this).text());
-				 console.log(texts1);
-				 tt = [texts1]
-				 Data.model1 = texts1;
-    });
-/*
-			if(b==1){
-				v = "1";
-				 vv = "ec1";
-				depo.push(vv);
-			   Data.id = v;
-				Data.nom_page = depo;
-			}
-			if(b==2){
-				 v = "2";
-				 vv = "ec2";
-				depo.push(vv);
-			   Data.id = v;
-				Data.nom_page = depo;
-			}*/
-		
-
-		}
-		//console.log(data);
-		  var data1 = JSON.stringify(Data);
-		   
-		   //console.log(data);
-		   //Data.nom_page = data;
-		   console.log(Data);
+		      console.log("_________________________________");
+		   console.log(data);
+		   data1 = JSON.stringify(data);
 		   console.log(data1);
-		
+		   io.emit('depot11',data1);
+		   //Data.nom_page = data;
 		   
 	  },
     }).droppable({
     drop : function(){
+	nb_depose = $('.ecran','#depose').length;
+		console.log(nb_depose+"tes0");
 		
-		//var ecc1 = document.getElementById("#ec1");
-		//var d = $(ecc1).clone();
-		//$("#ec11").append(d);
-		//$('#ecc1').append(ecc1);
-		
-
-		
-		$('.ec4s').dblclick(function(){
+		$('.ecran').dblclick(function(){
 				$('#droite').fadeIn(200, function(){
-					$('.ec4s').click(function(){
+					$('.ecran').click(function(){
 						$('#droite').fadeOut();
 						});
 				});
 		     });
-			
+		
+		
+		
 			
 			$('.fermer1','#depose').fadeIn(function(){
 				$('.fermer1').click(function(){
-						$(this).parent().parent().remove();
-				nb_depose = $('.ec4s','#depose').length;
-				console.log(nb_depose);
-					for(var i = 0; i < nb_depose; i++){
-			console.log("marche");
-			var texts=[];
-			 $('#depose .n_page').each(function(){
-        		texts.push($(this).text());
-				 console.log(texts);
-    					});
-					}
+						$(this).parent().remove();
+					
+					});
 				});
-						
-	});
 			
 		
 		
-		
-
-		
-				    	}
+		}
 });
 
 	
