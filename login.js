@@ -146,7 +146,7 @@ io.on('connection', socket => {
 				
 				console.log("Record delete!!");	
 			});*/
-				connection.query("UPDATE depot SET jsonn = '"+data1+"' ", [data1], function(err, rows){
+				connection.query("UPDATE depot SET jsonn = '"+escape(data1)+"'", [data1], function(err, rows){
 				console.log(rows);
 				console.log("Record insert!!");				
 				console.log("ok");

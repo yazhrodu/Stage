@@ -38,7 +38,7 @@
 .fermer1 h3{
 	margin-left: 6px;
 	color: white;
-	margin-top: -370%;
+	margin-top: -601%;
 }
 
 .feu{
@@ -151,7 +151,7 @@ body{
 	background-color: white;
 	color: white;
 	cursor: grab;
-	margin-top: 22px;
+	margin-top: 50px;
 }
 
 #ec2{
@@ -160,7 +160,7 @@ body{
 	background-color: red;
 	color: white;
 	cursor: grab;
-	margin-top: 22px;
+	margin-top: 50px;
 
 }
 
@@ -170,7 +170,7 @@ body{
 	background-color: darkblue;
 	color: white;
 	cursor: grab;
-	margin-top: 22px;
+	margin-top: 50px;
 
 }
 
@@ -180,7 +180,7 @@ body{
 	background-color: darkgray;
 	color: white;
 	cursor: grab;
-	margin-top: 22px;
+	margin-top: 50px;
 	
 }
 
@@ -273,4 +273,7 @@ body{
 }
 #dep{
 	text-align: center;
+}
+.temps{
+	display: none;
 }

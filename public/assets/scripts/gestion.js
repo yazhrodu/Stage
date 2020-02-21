@@ -78,8 +78,8 @@ $(document).ready(function() {
 			$('#wrapper').on('click', '.active', function(){
 				var obj =JSON.parse(myJSONx); 
 				obj.jsonn = eval("(" + obj.jsonn + ")");
-				console.log(myJSONx+"***********************************************************");
-				console.log(eval(obj)+"****************1111111111111111111111111111111******************************");
+				console.log(unescape(myJSONx)+"***********************************************************");
+				console.log(obj)+"****************1111111111111111111111111111111******************************");
 		});
 	});
 	
@@ -209,6 +209,7 @@ $(document).ready(function() {
 		
 
 
+	//--------------------PAGE----------------------------------
 
 //drag
 	$( ".ecran" ).draggable({
@@ -244,17 +245,8 @@ $(document).ready(function() {
 			  	var model =  $(this).attr("model");
 			   //{mode:model, data[]}
 			   	data.push({mode:model, data:[]});
-		   });
-		   
-		   $( ".f, #depose" ).mouseup(function() {
-			   console.log("testtttttttttttttttttttttttttttttttttttt")
-$("#depose .ecran").each(function(){
-			  	var model =  $(this).attr("model");
-			   //{mode:model, data[]}
-			   	data.push({mode:model, data:[]});
-		   });
-
-    });
+		   })
+		
 		   
 		      console.log("_________________________________");
 		   console.log(data);
@@ -304,8 +296,9 @@ $("#depose .ecran").each(function(){
 		     });
 		
 		
-		
+		$('.temps','#depose').fadeIn();
 			
+		
 			$('.fermer1','#depose').fadeIn(function(){
 				$('.fermer1').click(function(){
 						$(this).parent().remove();
@@ -333,6 +326,117 @@ $("#depose .ecran").each(function(){
 });
 
 	
+	//--------------------FONCTIONNALITE----------------------------------
+		$( ".fonction" ).draggable({
+      helper: "clone",
+      revert: "invalid",
+		connectToSortable: ".ecran"
+	});
+	$( "ul, li" ).disableSelection();
+  
 	
+	//chargement de l'interface
+
+	
+	
+	
+	
+	//drop
+	//console.log("Drop marche");
+	
+	//ajoute l'icone pour fermer la page
+	
+	$( ".ecran" ).sortable({
+      revert: "invalid",
+	   receive: function (event, ui){
+		   
+		   
+		  console.log("DropYLU marche");
+		/*   var data = [];
+		   var data1;
+		   $("#depose .ecran").each(function(){
+			  	var model =  $(this).attr("model");
+			   //{mode:model, data[]}
+			   	data.push({mode:model, data:[]});
+		   })
+		
+		   
+		      console.log("_________________________________");
+		   console.log(data);
+		   data1 = JSON.stringify(data);
+		   console.log(data1);
+		   io.emit('depot11',data1);*/
+		   //Data.nom_page = data;
+		   
+	  },
+    }).droppable({
+    drop : function(){
+
+	
+
+		/*var test = 1;
+		var animals =[];
+		animals.push("test");*/
+		/*$( ".f, #depose" )
+  .mouseup(function() {
+   console.log("up");
+   var data = [];
+		   var data1;
+		   $("#depose .ecran").each(function(){
+			  	var model =  $(this).attr("model");
+			   //{mode:model, data[]}
+			   	data.push({mode:model, data:[]});
+		   })
+   
+		   
+		      console.log("_________________________________");
+		   console.log(data);
+		   data1 = JSON.stringify(data);
+		   console.log(data1);
+		   io.emit('depot11',data1);
+  })
+  .mousedown(function() {
+   console.log("down");
+  });*/
+		/*
+		
+		$('.ecran','#depose').dblclick(function(){
+				$('#droite').fadeIn(200, function(){
+					$('.ecran').click(function(){
+						$('#droite').fadeOut();
+						});
+				});
+		     });
+		
+		
+		$('.temps','#depose').fadeIn();
+			
+		
+			$('.fermer1','#depose').fadeIn(function(){
+				$('.fermer1').click(function(){
+						$(this).parent().remove();
+						 var data = [];
+		   var data1;
+		   $("#depose .ecran").each(function(){
+			  	var model =  $(this).attr("model");
+			   //{mode:model, data[]}
+			   	data.push({mode:model, data:[]});
+		   })
+   
+		   
+		      console.log("_________________________________");
+		   console.log(data);
+		   data1 = JSON.stringify(data);
+		   console.log(data1);
+		   io.emit('depot11',data1);
+					
+					});
+				});*/
+			
+		
+		
+		}
+	});
+
 });
 	
