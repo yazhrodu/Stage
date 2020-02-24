@@ -4,6 +4,8 @@ var express = require('express');
 var session = require('express-session');
 var bodyParser = require('body-parser');
 var path = require('path');
+var unescapeJs = require('unescape-js');
+var escapeJSON = require('escape-json-node');
 
 var app = express();
 var server = require('http').createServer(app);
@@ -120,42 +122,59 @@ io.on('connection', socket => {
 		connection.query("SELECT jsonn FROM depot",function(err,rows){
 			var dx = rows;
 			myJSONx = JSON.stringify(dx);
+			var myJSONxx = (unescapeJs(myJSONx));
+			var jso = rows[0];
+			jso = jso.jsonn;
+			jso = JSON.parse(jso);
+			
+			
+			
 			var Page;
 			var depo = [];
 			
 			for (var i = 0; i < rows.length; i++){
          		var currrentPage = rows[i];
-         		Page = currrentPage.nom_depot;
+         		Page = currrentPage.jsonn;
 				depo.push(Page);
 				}
 			
-			console.log(Page);
+			//console.log(Page);
 			console.log(depo);
 			console.log(dx);
 			console.log(myJSONx);
-			
+			console.log(jso);
+		
 			
 			//insertion de l'id écran et du nom depot
 			socket.on('depot11',function(data1){
 				
 				console.log(data1);
-				
+				var JSONString = data1;
+ 
+				JSONString = escapeJSON(JSONString);
+ 
+				console.log(JSONString+"'''''''''''''''''''''''''''''''''''''''''''''''''");
 			//var ec1234 = page;
 			/*connection.query("UPDATE depot SET jsonn = NULL WHERE id = 152 ", function(err, result){
 				console.log(result);
 				
 				console.log("Record delete!!");	
 			});*/
-				connection.query("UPDATE depot SET jsonn = '"+escape(data1)+"'", [data1], function(err, rows){
+				connection.query("UPDATE depot SET nom_depot = '"+data1+"'", [data1], function(err, rows){
 				console.log(rows);
 				console.log("Record insert!!");				
 				console.log("ok");
 				});
-			
+		
 		});
-			socket.emit('depot2x',myJSONx);
+		
+			socket.emit('depot2x',myJSONx,jso,myJSONxx,depo);
 				});
 	});
+
+
+
+
 
 io.on('connection', socket => {
 		

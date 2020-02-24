@@ -74,12 +74,27 @@ $(document).ready(function() {
 	
 //2eme partie
 
-	io.on('depot2x',function(myJSONx){
-			$('#wrapper').on('click', '.active', function(){
-				var obj =JSON.parse(myJSONx); 
-				obj.jsonn = eval("(" + obj.jsonn + ")");
-				console.log(unescape(myJSONx)+"***********************************************************");
-				console.log(obj)+"****************1111111111111111111111111111111******************************");
+	io.on('depot2x',function(myJSONx,jso,myJSONxx,depo){
+			$(".active").click(function(){
+				//var obj =JSON.parse(myJSONx); 
+				//obj.jsonn = eval("(" + obj.jsonn + ")");
+				//var tddest = unescape(myJSONx); 
+		
+				
+				var v  = myJSONxx;
+
+
+				depo = JSON.parse(depo);
+				
+				console.log(depo[0].mode);
+				
+				//ob = JSON.parse(ob);
+				//var ob = JSON.stringify(myJSONx) 
+				//console.log("***********************************************************"+tddest);
+				console.log(myJSONx+"***********************************************************");
+				console.log(v+"*****************************444444444******************************");
+				console.log(myJSONxx);
+				console.log(jso+"****************1111111111111111111111111111111******************************");
 		});
 	});
 	
@@ -251,7 +266,8 @@ $(document).ready(function() {
 		      console.log("_________________________________");
 		   console.log(data);
 		   data1 = JSON.stringify(data);
-		   console.log(data1);
+		   data1 = escape(data1);
+		   console.log(data1+"111111122222222222");
 		   io.emit('depot11',data1);
 		   //Data.nom_page = data;
 		   
@@ -314,6 +330,7 @@ $(document).ready(function() {
 		      console.log("_________________________________");
 		   console.log(data);
 		   data1 = JSON.stringify(data);
+			data1 = escapeJSON(data1+"11111111111122222222222")
 		   console.log(data1);
 		   io.emit('depot11',data1);
 					
@@ -346,93 +363,16 @@ $(document).ready(function() {
 	
 	//ajoute l'icone pour fermer la page
 	
-	$( ".ecran" ).sortable({
+	$( ".ecran","#deposer").sortable({
       revert: "invalid",
 	   receive: function (event, ui){
 		   
 		   
 		  console.log("DropYLU marche");
-		/*   var data = [];
-		   var data1;
-		   $("#depose .ecran").each(function(){
-			  	var model =  $(this).attr("model");
-			   //{mode:model, data[]}
-			   	data.push({mode:model, data:[]});
-		   })
-		
-		   
-		      console.log("_________________________________");
-		   console.log(data);
-		   data1 = JSON.stringify(data);
-		   console.log(data1);
-		   io.emit('depot11',data1);*/
-		   //Data.nom_page = data;
-		   
+	
 	  },
     }).droppable({
     drop : function(){
-
-	
-
-		/*var test = 1;
-		var animals =[];
-		animals.push("test");*/
-		/*$( ".f, #depose" )
-  .mouseup(function() {
-   console.log("up");
-   var data = [];
-		   var data1;
-		   $("#depose .ecran").each(function(){
-			  	var model =  $(this).attr("model");
-			   //{mode:model, data[]}
-			   	data.push({mode:model, data:[]});
-		   })
-   
-		   
-		      console.log("_________________________________");
-		   console.log(data);
-		   data1 = JSON.stringify(data);
-		   console.log(data1);
-		   io.emit('depot11',data1);
-  })
-  .mousedown(function() {
-   console.log("down");
-  });*/
-		/*
-		
-		$('.ecran','#depose').dblclick(function(){
-				$('#droite').fadeIn(200, function(){
-					$('.ecran').click(function(){
-						$('#droite').fadeOut();
-						});
-				});
-		     });
-		
-		
-		$('.temps','#depose').fadeIn();
-			
-		
-			$('.fermer1','#depose').fadeIn(function(){
-				$('.fermer1').click(function(){
-						$(this).parent().remove();
-						 var data = [];
-		   var data1;
-		   $("#depose .ecran").each(function(){
-			  	var model =  $(this).attr("model");
-			   //{mode:model, data[]}
-			   	data.push({mode:model, data:[]});
-		   })
-   
-		   
-		      console.log("_________________________________");
-		   console.log(data);
-		   data1 = JSON.stringify(data);
-		   console.log(data1);
-		   io.emit('depot11',data1);
-					
-					});
-				});*/
-			
 		
 		
 		}
