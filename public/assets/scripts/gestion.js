@@ -74,7 +74,8 @@ $(document).ready(function() {
 	
 //2eme partie
 
-	io.on('depot2x',function(myJSONx,jso,myJSONxx,depo){
+	
+		io.on('depot2x',function(myJSONx,myJSONxx,depo){
 			$(".active").click(function(){
 				//var obj =JSON.parse(myJSONx); 
 				//obj.jsonn = eval("(" + obj.jsonn + ")");
@@ -83,18 +84,89 @@ $(document).ready(function() {
 				
 				var v  = myJSONxx;
 
-
+				console.log(depo);
 				depo = JSON.parse(depo);
-				
+				var dix =  depo.length;
+				var dix = dix;
 				console.log(depo[0].mode);
 				
+				
+				var nomdep = [];
+				for(var i = 0; i< depo.length; i++){
+				var currrentDep = depo[i];
+         		Dep = currrentDep.mode;
+				nomdep.push(Dep);	
+				}
+				
+				for(var i = 0; i< nomdep.length; i++){
+					console.log(nomdep);
+					console.log(nomdep[0]);
+					if(nomdep[i] == "model1"){
+					
+						console.log("test1");
+						var div = document.createElement('div');
+						$(div).addClass('ecran ui-draggable ui-draggable-handle');
+
+						$(div).attr('model', 'model1');
+						$(div).attr('style', 'width: 100px; height: 150px;');
+						$(div).append('<div id="ec1"></div><div class="temps" style="display:block"><label for="usr">Temps(s) :</label><input/></div><div class="fermer1"><h3>X</h3></div><div class="f"></div>');
+						$('#depose').append(div);
+						$(".fermer1", "#depose").fadeIn();
+					
+
+					}
+					
+					if(nomdep[i] == "model2"){
+		
+						console.log("test2");
+						var div = document.createElement('div');
+						$(div).addClass('ecran ui-draggable ui-draggable-handle');
+						$(div).attr('model', 'model2');
+						$(div).attr('style', 'width: 100px; height: 150px;');
+						$(div).append('<div id="ec2"></div><div class="temps" style="display:block"><label for="usr">Temps(s) :</label><input/></div><div class="fermer1"><h3>X</h3></div><div class="f"></div>');
+						$('#depose').append(div);
+						$("#ecc2").css("width: 100px; height: 150px;");
+						$(".fermer1", "#depose").fadeIn();
+					
+			
+					}
+					
+					if(nomdep[i] == "model3"){
+	
+						console.log("test3");
+						var div = document.createElement('div');
+						$(div).addClass('ecran ui-draggable ui-draggable-handle');
+						$(div).attr('model', 'model3');
+						$(div).attr('style', 'width: 100px; height: 150px;');
+						$(div).append('<div id="ec3"></div><div class="temps" style="display:block"><label for="usr">Temps(s) :</label><input/></div><div class="fermer1"><h3>X</h3></div><div class="f"></div>');
+						$('#depose').append(div);
+						$(".fermer1", "#depose").fadeIn();
+				
+
+					}
+					
+					if(nomdep[i] == "model4"){
+
+						console.log("test4")
+						var div = document.createElement('div');
+						$(div).addClass('ecran ui-draggable ui-draggable-handle');
+						$(div).attr('model', 'model4');
+						$(div).attr('style', 'width: 100px; height: 150px;');
+						$(div).append('<div id="ec4"></div><div class="temps" style="display:block"><label for="usr">Temps(s) :</label><input/></div><div class="fermer1"><h3>X</h3></div><div class="f"></div>');
+						$('#depose').append(div);
+						$(".fermer1", "#depose").fadeIn();
+		
+
+					}
+					
+				}
 				//ob = JSON.parse(ob);
 				//var ob = JSON.stringify(myJSONx) 
 				//console.log("***********************************************************"+tddest);
 				console.log(myJSONx+"***********************************************************");
 				console.log(v+"*****************************444444444******************************");
 				console.log(myJSONxx);
-				console.log(jso+"****************1111111111111111111111111111111******************************");
+				/*console.log(jso+"****************1111111111111111111111111111111******************************");*/
 		});
 	});
 	
@@ -140,6 +212,7 @@ $(document).ready(function() {
 		
 		//emet la variable
 		io.emit('depo',id_dep);
+		io.emit('depoo',id_dep);
 		
 		
 		//----------------------
@@ -266,8 +339,7 @@ $(document).ready(function() {
 		      console.log("_________________________________");
 		   console.log(data);
 		   data1 = JSON.stringify(data);
-		   data1 = escape(data1);
-		   console.log(data1+"111111122222222222");
+		   console.log(data1);
 		   io.emit('depot11',data1);
 		   //Data.nom_page = data;
 		   
@@ -330,7 +402,6 @@ $(document).ready(function() {
 		      console.log("_________________________________");
 		   console.log(data);
 		   data1 = JSON.stringify(data);
-			data1 = escapeJSON(data1+"11111111111122222222222")
 		   console.log(data1);
 		   io.emit('depot11',data1);
 					
