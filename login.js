@@ -106,13 +106,14 @@ io.on('connection', socket => {
 				var d = rows;
 				myJSON = JSON.stringify(d);
 				//var Nom = rows.nom_ec;
-				console.log(myJSON);
-				console.log(Noms);
-				console.log(rows);
-				console.log(dep);
+				//console.log(myJSON);
+				//console.log(Noms);
+				//console.log(rows);
+				//console.log(dep);
 				
 			});
 		});
+			
 			
 			socket.emit('depot',myJSON, rows);
 				});
@@ -121,7 +122,9 @@ io.on('connection', socket => {
 
 io.on('connection', socket => {
 	
-		connection.query("SELECT jsonn FROM ecrans WHERE ID = 103",function(err,rows){
+		connection.query("SELECT jsonn FROM ecrans",function(err,rows){
+			
+				connection.query("SELECT jsonn FROM ecrans",function(err,rows){
 			var dx = rows;
 			myJSONx = JSON.stringify(dx);
 			var myJSONxx = (unescapeJs(myJSONx));
@@ -141,15 +144,18 @@ io.on('connection', socket => {
 			
 			//console.log(Page);
 			console.log(depo);
-			//console.log(dx);
-			//console.log(myJSONx);
+			console.log(dx);
+			console.log(myJSONx);
 			console.log(jso);
-		
-			
+
+			socket.on('depot1',function(id_dep){
 			//insertion de l'id écran et du nom depot
 			socket.on('depot11',function(data1){
 				
 				console.log(data1);
+				console.log("rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr");
+				console.log(id_dep+"222222222233233323233");
+			console.log("rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr")
 				var JSONString = data1;
  
 				JSONString = escapeJSON(JSONString);
@@ -161,16 +167,18 @@ io.on('connection', socket => {
 				
 				console.log("Record delete!!");	
 			});*/
-				connection.query("UPDATE ecrans SET jsonn = '"+JSONString+"' WHERE id=103", [JSONString], function(err, rows){
+				connection.query("UPDATE ecrans SET jsonn = '"+JSONString+"' WHERE id = '"+id_dep+"' ", [JSONString,id_dep], function(err, rows){
 				console.log(rows);
 				console.log("Record insert!!");				
 				console.log("ok");
 				});
 		
 		});
-		
+		});
 			socket.emit('depot2x',myJSONx,myJSONxx,depo);
 				});
+				});
+
 	});
 
 

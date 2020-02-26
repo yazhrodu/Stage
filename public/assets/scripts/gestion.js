@@ -81,10 +81,14 @@ $(document).ready(function() {
 				//obj.jsonn = eval("(" + obj.jsonn + ")");
 				//var tddest = unescape(myJSONx); 
 		
-				
+				console.log("rrrrrrrrrrrrrrrrrrrrrr");
 				var v  = myJSONxx;
+				
+					var id_dep = $(this).find('#id_ecran').attr('value');
+		   io.emit('depot1',id_dep);
+				
 
-				console.log(depo);
+				console.log(depo+"rrrrrrrrrrrrrrrrrrrrrr");
 				depo = JSON.parse(depo);
 				var dix =  depo.length;
 				var dix = dix;
@@ -212,7 +216,7 @@ $(document).ready(function() {
 		
 		//emet la variable
 		io.emit('depo',id_dep);
-		io.emit('depoo',id_dep);
+
 		
 		
 		//----------------------
@@ -403,6 +407,7 @@ $(document).ready(function() {
 		   console.log(data);
 		   data1 = JSON.stringify(data);
 		   console.log(data1);
+			var id_dep = $(this).find('#id_ecran').attr('value');
 		   io.emit('depot11',data1);
 					
 					});
