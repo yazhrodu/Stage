@@ -74,8 +74,95 @@ $(document).ready(function() {
 	
 //2eme partie
 
+		io.on('depotF',function(dep){
+			console.log("plplplplplplplplplplplplplplplplpllp11111111111111111111111111111111"+dep);
+			console.log(dep+"rrrrrrrrrrrrrrrrrrrrrr");
+				dep = JSON.parse(dep);
+				var dix =  dep.length;
+				var dix = dix;
+			
+				
+				var nomdep = [];
+				for(var i = 0; i< dep.length; i++){
+				var currrentDep = dep[i];
+         		Dep = currrentDep.mode;
+				nomdep.push(Dep);	
+				}
+				
+				for(var i = 0; i< nomdep.length; i++){
+					console.log(nomdep);
+					console.log(nomdep[0]);
+					if(nomdep[i] == "model1"){
+					
+						console.log("test1");
+						var div = document.createElement('div');
+						$(div).addClass('ecran ui-draggable ui-draggable-handle');
+
+						$(div).attr('model', 'model1');
+						$(div).attr('style', 'width: 100px; height: 150px;');
+						$(div).append('<div id="ec1"></div><div class="temps" style="display:block"><label for="usr">Temps(s) :</label><input/></div><div class="fermer1"><h3>X</h3></div><div class="f"></div>');
+						$('#depose').append(div);
+						$(".fermer1", "#depose").fadeIn();
+					
+
+					}
+					
+					if(nomdep[i] == "model2"){
+		
+						console.log("test2");
+						var div = document.createElement('div');
+						$(div).addClass('ecran ui-draggable ui-draggable-handle');
+						$(div).attr('model', 'model2');
+						$(div).attr('style', 'width: 100px; height: 150px;');
+						$(div).append('<div id="ec2"><div class="row" id="ligne"><div id="2eec1" style="background-color: beige; height: 100px;" class="col"></div><div id="2eec2" style="background-color: green; height: 100px;" class="col"></div></div></div><div class="temps" style="display:block"><label for="usr">Temps(s) :</label><input/></div><div class="fermer1"><h3>X</h3></div><div class="f"></div>');
+						
+						
+					
+						$('#depose').append(div);
+						$("#ecc2").css("width: 100px; height: 150px;");
+						$(".fermer1", "#depose").fadeIn();
+					
+			
+					}
+					
+					if(nomdep[i] == "model3"){
 	
+						console.log("test3");
+						var div = document.createElement('div');
+						$(div).addClass('ecran ui-draggable ui-draggable-handle');
+						$(div).attr('model', 'model3');
+						$(div).attr('style', 'width: 100px; height: 150px;');
+						$(div).append('<div id="ec3"><div class="row" id="ligne"><div id="3eec1" style="background-color: white; height: 50px;" class="col"></div><div id="3eec2" style="background-color: red; height: 50px;" class="col"></div></div><div class="row" id="ligne"><div id="3eec3" style="background-color: blue; height: 50px;"  class="col"></div></div></div><div class="temps" style="display:block"><label for="usr">Temps(s) :</label><input/></div><div class="fermer1"><h3>X</h3></div><div class="f"></div>');
+						
+						$('#depose').append(div);
+						$(".fermer1", "#depose").fadeIn();
+				
+
+					}
+					
+					if(nomdep[i] == "model4"){
+
+						console.log("test4")
+						var div = document.createElement('div');
+						$(div).addClass('ecran ui-draggable ui-draggable-handle');
+						$(div).attr('model', 'model4');
+						$(div).attr('style', 'width: 100px; height: 150px;');
+						$(div).append('<div id="ec4"><div class="row" id="ligne"><div id="4eec1" style="background-color: black; height: 50px;" class="col"></div><div id="4eec2" style="background-color: aquamarine; height: 50px;" class="col"></div></div><div class="row" id="ligne"><div id="4eec3" style="background-color: crismon; height: 50px;"  class="col"></div><div id="4eec4" style="background-color: coral; height: 50px;" class="col"></div></div></div><div class="temps" style="display:block"><label for="usr">Temps(s) :</label><input/></div><div class="fermer1"><h3>X</h3></div><div class="f"></div>');
+						$('#depose').append(div);
+						$(".fermer1", "#depose").fadeIn();
+						
+
+					}
+					
+				}
+			$(".active").click(function(){
+			console.log("plplplplplplplplplplplplplplplplpllp22222222222222222222222"+dep);
+		});
+	});
+	
+	/*
 		io.on('depot2x',function(myJSONx,myJSONxx,depo){
+			
 			$(".active").click(function(){
 				//var obj =JSON.parse(myJSONx); 
 				//obj.jsonn = eval("(" + obj.jsonn + ")");
@@ -83,10 +170,6 @@ $(document).ready(function() {
 		
 				console.log("rrrrrrrrrrrrrrrrrrrrrr");
 				var v  = myJSONxx;
-				
-					var id_dep = $(this).find('#id_ecran').attr('value');
-		   io.emit('depot1',id_dep);
-				
 
 				console.log(depo+"rrrrrrrrrrrrrrrrrrrrrr");
 				depo = JSON.parse(depo);
@@ -170,10 +253,10 @@ $(document).ready(function() {
 				console.log(myJSONx+"***********************************************************");
 				console.log(v+"*****************************444444444******************************");
 				console.log(myJSONxx);
-				/*console.log(jso+"****************1111111111111111111111111111111******************************");*/
+				
 		});
 	});
-	
+	*/
 	
 	
 	
@@ -185,6 +268,17 @@ $(document).ready(function() {
 	//Active l'interface d'édition pour les écrans
 	$('#wrapper').on('click', '.active', function(){
 		//var id_dep = $(this).find('#id_dept').attr('value');
+		$("#2eec1").attr('style', 'background-color: beige; height: 100px;');
+		$("#2eec2").attr('style', 'background-color: green; height: 100px;');
+		
+		$("#3eec1").attr('style', 'background-color: white; height: 50px;');
+		$("#3eec2").attr('style', 'background-color: red; height: 50px;');
+		$("#3eec3").attr('style', 'background-color: blue; height: 50px;');
+		
+		$("#4eec1").attr('style', 'background-color: black; height: 50px;');
+		$("#4eec2").attr('style', 'background-color: aquamarine; height: 50px;');
+		$("#4eec3").attr('style', 'background-color: crismon; height: 50px;');
+		$("#4eec4").attr('style', 'background-color: coral; height: 50px;');
 		
 		//attribut l'id et le nom de l'écran aux variables
 		var id_dep = $(this).find('#id_ecran').attr('value');
@@ -261,6 +355,9 @@ $(document).ready(function() {
 	
 //Quitte l'interface de l'édition des écrans
 	$('#sortir').click(function(){
+	
+			   
+		
 		$('#wrapper3').fadeOut(200, function(){	
 			$('header').fadeIn(200);
 			$('#ajouter').fadeIn(200);
@@ -279,7 +376,6 @@ $(document).ready(function() {
 			while (element1.firstChild) {
 				element1.removeChild(element1.firstChild);
 			}
-			
 			
 		});
 			
@@ -407,7 +503,6 @@ $(document).ready(function() {
 		   console.log(data);
 		   data1 = JSON.stringify(data);
 		   console.log(data1);
-			var id_dep = $(this).find('#id_ecran').attr('value');
 		   io.emit('depot11',data1);
 					
 					});

@@ -29,8 +29,8 @@
         				<input type="text" name="ip" id="adesse_ip" placeholder="Ex : 192.168.50.21" size="20" maxlength="15" class="form-control" id="usr"/><br>
         				<label for="usr">Nom :</label>
         				<input type="text" name="nom"  id="nom_ecran"  size="20" maxlength="13" class="form-control" id="usr"/><br><br>
-						<label for="usr">Id_ecran :</label>
-        				<input type="text" name="id_depot"  size="20" maxlength="13" class="form-control" id="usr"/><br><br>
+
+        				
         				<input type="submit" value="AJOUTER" class="btn btn-success" id="ajouter3"/><input id="annuler" type="submit" value="ANNULER" type="button" class="btn btn-dark"/>
 						</p>
 					</div>
@@ -46,7 +46,9 @@
 		<ul id = "portfolio">
 			<div class="row">
 				<!--<li><div class="active"><img src="assets/images/sativa.png" class="feu"></div><div class="fermer"><p id="id_ecran"></p><h3>X</h3></div>
-				</li>-->			
+				</li>
+				<li><div class="active"><p id="nom_ecran" value="Rapida"></p><p id="id_dept" value="0"></p><p id="id_ecran" value="97"></p><p></p><img src="assets/images/sativa.png" alt="img" class="feu"></div><div class="fermer"><p id="id_ecran" value="97"></p><h3>X</h3></div><p id="nom_ecran" value="">Rapida</p></li>-->
+				
 			</div>
 		</ul>
 	</div>
@@ -59,15 +61,26 @@
 			<!--Diffusion multiple ou non-->
 				<div class="col-2" id = "gauche">
 			<br><br><br>
-				
-						<div id="sortir" class="col"><img src="assets/images/left.png"></div>
+					<form  action="accueil"  method="POST">
+						<div id="sortir" class="col"><img src="assets/images/left.png" ><input type="submit" value="" id="sorti"/></div>
+					</form>
 					   	<div id="nom_ecranss_1"><center><strong><p id="nom_ecranss"></p></strong></center></div>					
+					
+					
 					
 				<ul id="ec">
 					<div class="ecran" model="model1"><div id="ec1"></div><div class="temps"><label for="usr">Temps(s) :</label><input/></div></div>
-					<div class="ecran" model="model2"><div id="ec2"></div><div class="temps"><label for="usr">Temps(s) :</label><input/></div></div>
-					<div class="ecran" model="model3"><div id="ec3"></div><div class="temps"><label for="usr">Temps(s) :</label><input/></div></div>
-					<div class="ecran" model="model4"><div id="ec4"></div><div class="temps"><label for="usr">Temps(s) :</label><input/></div></div>
+					
+					
+					
+					<div class="ecran" model="model2"><div id="ec2"><div class="row" id="ligne"><div id="2eec1"  class="col"></div><div id="2eec2"  class="col"></div></div></div><div class="temps"><label for="usr">Temps(s) :</label><input/></div></div>
+					
+					
+					
+					<div class="ecran" model="model3"><div id="ec3"><div class="row" id="ligne"><div id="3eec1"  class="col"></div><div id="3eec2"  class="col"></div></div><div class="row" id="ligne"><div id="3eec3"  class="col"></div></div></div><div class="temps"><label for="usr">Temps(s) :</label><input/></div></div>
+					
+					
+					<div class="ecran" model="model4"><div id="ec4"><div class="row" id="ligne"><div id="4eec1"  class="col"></div><div id="4eec2"  class="col"></div></div><div class="row" id="ligne"><div id="4eec3"  class="col"></div><div id="4eec4"  class="col"></div></div></div><div class="temps"><label for="usr">Temps(s) :</label><input/></div></div>
     			</ul>
 			</div>
 			

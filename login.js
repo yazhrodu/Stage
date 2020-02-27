@@ -86,7 +86,7 @@ io.on('connection', socket => {
 
 		 
     io.on('connection', socket => {
-		connection.query("SELECT nom_ec, adresse_ip, id, id_depot FROM ecrans",function(err,rows){
+		connection.query("SELECT nom_ec, adresse_ip, id, jsonn FROM ecrans",function(err,rows){
 			var d = rows;
 			myJSON = JSON.stringify(d);
 			//console.log(myJSON);
@@ -94,12 +94,12 @@ io.on('connection', socket => {
 			socket.on('depo',function(id_dep){
 			var id_depp = id_dep;
 			var dep = [];
-			var sql = "SELECT nom_ec FROM ecrans WHERE id = ?";
+			var sql = "SELECT jsonn FROM ecrans WHERE id = ?";
 			var Noms;
 			connection.query(sql, [id_dep], function(err, rows){
 				for (var i = 0; i < rows.length; i++){
          		var currrentNoms = rows[i];
-         		Noms = currrentNoms.nom_ec;
+         		Noms = currrentNoms.jsonn;
 				dep.push(Noms);
 				}
 				
@@ -109,10 +109,57 @@ io.on('connection', socket => {
 				//console.log(myJSON);
 				//console.log(Noms);
 				//console.log(rows);
-				//console.log(dep);
+				console.log("cei est "+dep);
+				socket.emit('depotF',dep);
 				
+				
+				//---------------------------------------
+			var dx = rows;
+			 var myJSONx = JSON.stringify(dx);
+			var myJSONxx = (unescapeJs(myJSONx));
+			var jso = rows[0];
+			jso = jso.jsonn;
+			jso = JSON.parse(jso);
+			
+		
+			//insertion de l'id écran et du nom depot
+			socket.on('depot11',function(data1){
+				
+				console.log(data1);
+				console.log("rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr"+id_dep);
+				console.log(id_dep+"222222222233233323233");
+			console.log("rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr")
+				var JSONString = data1;
+ 				console.log(JSONString);
+				
+				//pour eviter les problèmes de mélange a cause d'un valeur json null
+				if(JSONString == "[]"){
+					JSONString = 0;
+					console.log(JSONString);
+				}
+				//------------
+				
+				JSONString = escapeJSON(JSONString);
+ 
+				console.log(JSONString+"'''''''''''''''''''''''''''''''''''''''''''''''''");
+		
+				connection.query("UPDATE ecrans SET jsonn = '"+JSONString+"' WHERE id = '"+id_dep+"' ", [JSONString,id_dep], function(err, rows){
+				console.log(rows);
+				console.log("Record insert!!");				
+				console.log("ok");
+				});
+				
+				
+		
+		});
 			});
 		});
+			
+			
+	
+			/*socket.emit('depot2x',myJSONx,myJSONxx,depo);*/
+				
+			
 			
 			
 			socket.emit('depot',myJSON, rows);
@@ -120,132 +167,9 @@ io.on('connection', socket => {
 	});
 
 
-io.on('connection', socket => {
-	
-		connection.query("SELECT jsonn FROM ecrans",function(err,rows){
-			
-				connection.query("SELECT jsonn FROM ecrans",function(err,rows){
-			var dx = rows;
-			myJSONx = JSON.stringify(dx);
-			var myJSONxx = (unescapeJs(myJSONx));
-			var jso = rows[0];
-			jso = jso.jsonn;
-			jso = JSON.parse(jso);
-			
-			
-			var Page;
-			var depo = [];
-			
-			for (var i = 0; i < rows.length; i++){
-         		var currrentPage = rows[i];
-         		Page = currrentPage.jsonn;
-				depo.push(Page);
-				}
-			
-			//console.log(Page);
-			console.log(depo);
-			console.log(dx);
-			console.log(myJSONx);
-			console.log(jso);
-
-			socket.on('depot1',function(id_dep){
-			//insertion de l'id écran et du nom depot
-			socket.on('depot11',function(data1){
-				
-				console.log(data1);
-				console.log("rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr");
-				console.log(id_dep+"222222222233233323233");
-			console.log("rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr")
-				var JSONString = data1;
- 
-				JSONString = escapeJSON(JSONString);
- 
-				console.log(JSONString+"'''''''''''''''''''''''''''''''''''''''''''''''''");
-			//var ec1234 = page;
-			/*connection.query("UPDATE depot SET jsonn = NULL WHERE id = 152 ", function(err, result){
-				console.log(result);
-				
-				console.log("Record delete!!");	
-			});*/
-				connection.query("UPDATE ecrans SET jsonn = '"+JSONString+"' WHERE id = '"+id_dep+"' ", [JSONString,id_dep], function(err, rows){
-				console.log(rows);
-				console.log("Record insert!!");				
-				console.log("ok");
-				});
-		
-		});
-		});
-			socket.emit('depot2x',myJSONx,myJSONxx,depo);
-				});
-				});
-
-	});
 
 
 
-
-
-io.on('connection', socket => {
-		
-		connection.query("SELECT id_page, nom_page FROM ecrans",function(err,rows){
-			var d = rows;
-			myJSON = JSON.stringify(d);
-			
-			
-			var Data ={
-				model: [
-    			{ id:"id_page", "models":"nom_page", data:"tab" },
-					]
-			}
-			
-			
-			
-			//console.log(myJSON);
-			
-			socket.on('depo',function(id_dep){
-			var id_depp = id_dep;
-			var dep = [];
-			var sql = "SELECT nom_ec FROM ecrans WHERE id = ?";
-			var Noms;
-			connection.query(sql, [id_dep], function(err, rows){
-				for (var i = 0; i < rows.length; i++){
-         		var currrentNoms = rows[i];
-         		Noms = currrentNoms.nom_ec;
-				dep.push(Noms);
-				}
-				
-				var d = rows;
-				myJSON = JSON.stringify(d);
-				//var Nom = rows.nom_ec;
-				console.log(myJSON);
-				console.log(Noms);
-				console.log(rows);
-				console.log(dep);
-				
-			});
-		});
-			
-			
-				});
-	
-		/*connection.query("SELECT jsonn FROM depot",function(err,rows){
-			var pott = [];
-			var Nomss;
-//stock le nom de l'écran et l'id
-
-         		var currrentNomss = rows;
-         		Noms = currrentNomss.jsonn;
-				pott.push(Nomss);
-	
-
-			
-		console.log("************************************************************");
-			console.log(pott);
-			
-       	
-		
-    		});*/
-	});
 
 //Authentification
 app.post('/auth', function(request, response) {
@@ -288,9 +212,10 @@ app.get('/accueil', function(request, response) {
 app.post('/accueil', function(request, response) {
 	var nom = request.body.nom;
 	var ip = request.body.ip;
-	var id_depot = request.body.id_depot;
+	var id_depot = 0;
 	if (nom && ip) {
-		connection.query("INSERT INTO `ecrans` (`nom_ec`, `adresse_ip`,`id_depot`) VALUES ('"+escape(nom)+"', '"+escape(ip)+"', '"+escape(id_depot)+"')", [nom, ip,id_depot], function(){
+		connection.query("INSERT INTO `ecrans` (`nom_ec`, `adresse_ip`,`id_depot`) VALUES ('"+escape(nom)+"', '"+escape(ip)+"', '"+escape(id_depot)+"')", [nom, ip,id_depot], function(error, results){
+			console.log(results);
 			response.redirect('/accueil');
 		});
 		 
@@ -315,4 +240,4 @@ io.on('disconnect', () => {
 
 
 
-server.listen(3000);
+server.listen(3002);

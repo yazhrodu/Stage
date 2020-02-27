@@ -149,7 +149,7 @@ body{
 #ec1{
 	width: 100px;
 	height: 100px;
-	background-color: white;
+	background-color: gold;
 	color: white;
 	cursor: grab;
 	margin-top: 50px;
@@ -278,3 +278,14 @@ body{
 .temps{
 	display: none;
 }
+#sorti{
+	padding: 20px;
+	margin-top: -63px;
+	opacity: 0;
+}
+/*
+ecran multiple*******************************************************
+*/
+
+
+
