@@ -114,7 +114,7 @@ $(document).ready(function() {
 						$(div).addClass('ecran ui-draggable ui-draggable-handle');
 						$(div).attr('model', 'model2');
 						$(div).attr('style', 'width: 100px; height: 150px;');
-						$(div).append('<div id="ec2"><div class="row" id="ligne"><div id="2eec1" style="background-color: beige; height: 100px;" class="col"></div><div id="2eec2" style="background-color: green; height: 100px;" class="col"></div></div></div><div class="temps" style="display:block"><label for="usr">Temps(s) :</label><input/></div><div class="fermer1"><h3>X</h3></div><div class="f"></div>');
+						$(div).append('<div id="ec2"><div class="row" id="ligne"><div id="2eec1" style="background-color: darkcyan"; height: 100px;" class="col"></div><div id="2eec2" style="background-color: green; height: 100px;" class="col"></div></div></div><div class="temps" style="display:block"><label for="usr">Temps(s) :</label><input/></div><div class="fermer1"><h3>X</h3></div><div class="f"></div>');
 						
 						
 					
@@ -132,7 +132,7 @@ $(document).ready(function() {
 						$(div).addClass('ecran ui-draggable ui-draggable-handle');
 						$(div).attr('model', 'model3');
 						$(div).attr('style', 'width: 100px; height: 150px;');
-						$(div).append('<div id="ec3"><div class="row" id="ligne"><div id="3eec1" style="background-color: white; height: 50px;" class="col"></div><div id="3eec2" style="background-color: red; height: 50px;" class="col"></div></div><div class="row" id="ligne"><div id="3eec3" style="background-color: blue; height: 50px;"  class="col"></div></div></div><div class="temps" style="display:block"><label for="usr">Temps(s) :</label><input/></div><div class="fermer1"><h3>X</h3></div><div class="f"></div>');
+						$(div).append('<div id="ec3"><div class="row" id="ligne"><div id="3eec1" style="background-color: white; height: 50px;" class="col"></div><div id="3eec2" style="background-color: red; height: 50px;" class="col"></div></div><div class="row" id="ligne"><div id="3eec3" style="background-color: cornflowerblue; height: 50px;"  class="col"></div></div></div><div class="temps" style="display:block"><label for="usr">Temps(s) :</label><input/></div><div class="fermer1"><h3>X</h3></div><div class="f"></div>');
 						
 						$('#depose').append(div);
 						$(".fermer1", "#depose").fadeIn();
@@ -268,12 +268,12 @@ $(document).ready(function() {
 	//Active l'interface d'édition pour les écrans
 	$('#wrapper').on('click', '.active', function(){
 		//var id_dep = $(this).find('#id_dept').attr('value');
-		$("#2eec1").attr('style', 'background-color: beige; height: 100px;');
+		$("#2eec1").attr('style', 'background-color: darkcyan; height: 100px;');
 		$("#2eec2").attr('style', 'background-color: green; height: 100px;');
 		
 		$("#3eec1").attr('style', 'background-color: white; height: 50px;');
 		$("#3eec2").attr('style', 'background-color: red; height: 50px;');
-		$("#3eec3").attr('style', 'background-color: blue; height: 50px;');
+		$("#3eec3").attr('style', 'background-color: cornflowerblue; height: 50px;');
 		
 		$("#4eec1").attr('style', 'background-color: black; height: 50px;');
 		$("#4eec2").attr('style', 'background-color: aquamarine; height: 50px;');
@@ -515,6 +515,90 @@ $(document).ready(function() {
 
 	
 	//--------------------FONCTIONNALITE----------------------------------
+	
+	$("#fc1").click(function(){
+		
+		$("#fonction_entre").empty();
+		
+		$("#fonction_entre").append('<div class="form-group"><p><label for="usr">nom du fichier :</label><input type="text" name="fichier" id="n_fich"  size="20" maxlength="15" class="form-control"/><br><label for="usr">texte :</label><input type="text" name="texte"  id="texte"  size="20"  class="form-control"/><br><br><input type="submit" value="AJOUTER" class="btn btn-success"/><input id="annuler1" type="submit" value="ANNULER" type="button" class="btn btn-dark"/></p></div>');
+		$("#fonc_entr").addClass('row');
+		$("#fonction_entre").fadeIn();
+		
+		$("#annuler1").click(function(){
+		$("#fonction_entre").fadeOut(200, function(){
+			$( "#fonc_entr" ).removeClass();
+		});
+			 $("#fonction_entre").empty();
+		
+	});
+	});
+	
+	$("#fc2").click(function(){
+		
+		$("#fonction_entre").empty();
+		
+		$("#fonction_entre").append('<div class="form-group"><p><label for="usr">nom_image :</label><input type="text" name="fichier" id="n_img"  size="20" maxlength="15" class="form-control"/><br><label for="usr">img_lien :</label><input type="img" name="img"  id="img"  placeholder="Ex :images/logo.png" size="20"  class="form-control"/><br><br><input type="submit" value="AJOUTER" class="btn btn-success"/><input id="annuler1" type="submit" value="ANNULER" type="button" class="btn btn-dark"/></p></div>');
+		$("#fonc_entr").addClass('row');
+		$("#fonction_entre").fadeIn();
+		
+		$("#annuler1").click(function(){
+		$("#fonction_entre").fadeOut(200, function(){
+			$( "#fonc_entr" ).removeClass();
+		});
+		
+			$("#fonction_entre").empty();
+	});
+	});
+	
+	$("#fc3").click(function(){
+		
+		$("#fonction_entre").empty();
+		
+		$("#fonction_entre").append('<div class="form-group"><p><label for="usr">nom du site web :</label><input type="text" name="n_site" id="n_fich"  size="20" maxlength="15" class="form-control"/><br><label for="usr">URL :</label><input type="url name="site_web"  id="site_web"  size="20"  class="form-control"/><br><br><input type="submit" value="AJOUTER" class="btn btn-success"/><input id="annuler1" type="submit" value="ANNULER" type="button" class="btn btn-dark"/></p></div>');
+		$("#fonc_entr").addClass('row');
+		$("#fonction_entre").fadeIn();
+		
+		$("#annuler1").click(function(){
+		$("#fonction_entre").fadeOut(200, function(){
+			$( "#fonc_entr" ).removeClass();
+		});
+			
+			$("#fonction_entre").empty();
+		
+	});
+	});
+	
+	$("#fc4").click(function(){
+		
+		$("#fonction_entre").empty();
+		
+		$("#fonction_entre").append('<div class="form-group"><p><label for="usr">nom de la video :</label><input type="text" name="n_video" id="n_video"  size="20" maxlength="15" class="form-control"/><br><label for="usr">video :</label><input type="text" name="video"  id="video"  size="20"  class="form-control"/><br><br><input type="submit" value="AJOUTER" class="btn btn-success"/><input id="annuler1" type="submit" value="ANNULER" type="button" class="btn btn-dark"/></p></div>');
+		$("#fonc_entr").addClass('row');
+		$("#fonction_entre").fadeIn();
+		
+		$("#annuler1").click(function(){
+		$("#fonction_entre").fadeOut(200, function(){
+			$( "#fonc_entr" ).removeClass();
+		});
+			
+			$("#fonction_entre").empty();
+		
+	});
+	});
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 		$( ".fonction" ).draggable({
       helper: "clone",
       revert: "invalid",

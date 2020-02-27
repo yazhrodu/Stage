@@ -284,8 +284,17 @@ body{
 	opacity: 0;
 }
 /*
-ecran multiple*******************************************************
+*******************************************************
 */
 
+#fonction_entre{
+	padding: 20px;
+	background-color: burlywood;
+	height: 400px;
+	border-bottom-left-radius: 30px;
+	border-top-left-radius: 30px;
+	display: none;
+	
+}
 
 
