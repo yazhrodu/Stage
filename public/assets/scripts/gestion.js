@@ -100,7 +100,7 @@ $(document).ready(function() {
 
 						$(div).attr('model', 'model1');
 						$(div).attr('style', 'width: 100px; height: 150px;');
-						$(div).append('<div id="ec1"></div><div class="temps" style="display:block"><label for="usr">Temps(s) :</label><input/></div><div class="fermer1"><h3>X</h3></div><div class="f"></div>');
+						$(div).append('<div id="ec1"><div id="1eec1" page="page1" class="col" style="background-color: gold; height: 100px;"></div></div><div class="temps" style="display:block"><label for="usr">Temps(s) :</label><input/></div><div class="fermer1"><h3>X</h3></div><div class="f"></div>');
 						$('#depose').append(div);
 						$(".fermer1", "#depose").fadeIn();
 					
@@ -114,7 +114,7 @@ $(document).ready(function() {
 						$(div).addClass('ecran ui-draggable ui-draggable-handle');
 						$(div).attr('model', 'model2');
 						$(div).attr('style', 'width: 100px; height: 150px;');
-						$(div).append('<div id="ec2"><div class="row" id="ligne"><div id="2eec1" style="background-color: darkcyan"; height: 100px;" class="col"></div><div id="2eec2" style="background-color: green; height: 100px;" class="col"></div></div></div><div class="temps" style="display:block"><label for="usr">Temps(s) :</label><input/></div><div class="fermer1"><h3>X</h3></div><div class="f"></div>');
+						$(div).append('<div id="ec2"><div class="row" id="ligne"><div id="2eec1" page="page1" style="background-color: darkcyan"; height: 100px;" class="col"></div><div id="2eec2" page="page2" style="background-color: green; height: 100px;" class="col"></div></div></div><div class="temps" style="display:block"><label for="usr">Temps(s) :</label><input/></div><div class="fermer1"><h3>X</h3></div><div class="f"></div>');
 						
 						
 					
@@ -132,7 +132,7 @@ $(document).ready(function() {
 						$(div).addClass('ecran ui-draggable ui-draggable-handle');
 						$(div).attr('model', 'model3');
 						$(div).attr('style', 'width: 100px; height: 150px;');
-						$(div).append('<div id="ec3"><div class="row" id="ligne"><div id="3eec1" style="background-color: white; height: 50px;" class="col"></div><div id="3eec2" style="background-color: red; height: 50px;" class="col"></div></div><div class="row" id="ligne"><div id="3eec3" style="background-color: cornflowerblue; height: 50px;"  class="col"></div></div></div><div class="temps" style="display:block"><label for="usr">Temps(s) :</label><input/></div><div class="fermer1"><h3>X</h3></div><div class="f"></div>');
+						$(div).append('<div id="ec3"><div class="row" id="ligne"><div id="3eec1" page="page1" style="background-color: white; height: 50px;" class="col"></div><div id="3eec2" page="page2" style="background-color: red; height: 50px;" class="col"></div></div><div class="row" id="ligne"><div id="3eec3" page="page3" style="background-color: cornflowerblue; height: 50px;"  class="col"></div></div></div><div class="temps" style="display:block"><label for="usr">Temps(s) :</label><input/></div><div class="fermer1"><h3>X</h3></div><div class="f"></div>');
 						
 						$('#depose').append(div);
 						$(".fermer1", "#depose").fadeIn();
@@ -147,7 +147,7 @@ $(document).ready(function() {
 						$(div).addClass('ecran ui-draggable ui-draggable-handle');
 						$(div).attr('model', 'model4');
 						$(div).attr('style', 'width: 100px; height: 150px;');
-						$(div).append('<div id="ec4"><div class="row" id="ligne"><div id="4eec1" style="background-color: black; height: 50px;" class="col"></div><div id="4eec2" style="background-color: aquamarine; height: 50px;" class="col"></div></div><div class="row" id="ligne"><div id="4eec3" style="background-color: crismon; height: 50px;"  class="col"></div><div id="4eec4" style="background-color: coral; height: 50px;" class="col"></div></div></div><div class="temps" style="display:block"><label for="usr">Temps(s) :</label><input/></div><div class="fermer1"><h3>X</h3></div><div class="f"></div>');
+						$(div).append('<div id="ec4"><div class="row" id="ligne"><div id="4eec1" page="page1"  style="background-color: black; height: 50px;" class="col"></div><div id="4eec2"  page="page2" style="background-color: aquamarine; height: 50px;" class="col"></div></div><div class="row" id="ligne"><div id="4eec3" page="page3" style="background-color: crismon; height: 50px;"  class="col"></div><div id="4eec4" page="page4" style="background-color: coral; height: 50px;" class="col"></div></div></div><div class="temps" style="display:block"><label for="usr">Temps(s) :</label><input/></div><div class="fermer1"><h3>X</h3></div><div class="f"></div>');
 						$('#depose').append(div);
 						$(".fermer1", "#depose").fadeIn();
 						
@@ -268,6 +268,8 @@ $(document).ready(function() {
 	//Active l'interface d'édition pour les écrans
 	$('#wrapper').on('click', '.active', function(){
 		//var id_dep = $(this).find('#id_dept').attr('value');
+		$("#1eec1").attr('style', 'background-color: gold; height: 100px;');
+		
 		$("#2eec1").attr('style', 'background-color: darkcyan; height: 100px;');
 		$("#2eec2").attr('style', 'background-color: green; height: 100px;');
 		
@@ -367,7 +369,7 @@ $(document).ready(function() {
 			
 		
 			//vide 
-			var element = document.getElementById("nom_ecranss");
+			
 			while (element.firstChild) {
 				element.removeChild(element.firstChild);
 			}
@@ -403,14 +405,15 @@ $(document).ready(function() {
 	$( ".ecran" ).draggable({
       helper: "clone",
       revert: "invalid",
-		connectToSortable: ".dropfalsee"
+		connectToSortable: ".dropfalsee",
 	});
 	$( "ul, li" ).disableSelection();
   
 	
 	//chargement de l'interface
-
-	
+$( "#enleve" ).mouseup(function() {
+    $("#enleve").fadeOut();
+  });
 	
 	
 	
@@ -474,14 +477,94 @@ $(document).ready(function() {
    console.log("down");
   });*/
 		
+
+
 		
-		$('.ecran','#depose').dblclick(function(){
-				$('#droite').fadeIn(200, function(){
-					$('.ecran').click(function(){
-						$('#droite').fadeOut();
+		$('div[class]','#depose').dblclick(function(){
+			var b = $( this ).attr( "page" );
+			console.log(b)
+			$("#pg2").text(b);
+			
+			var m = $( this ).attr( "model" );
+			console.log(m)
+			$("#pg").text(m);
+			
+			/*console.log(b);
+			$(this).find("#ec1", function(){
+				console.log("ec1mmmmmmmmmm")
+			});
+			var pageec1 = $(this).find('#ec1').attr('page');
+			console.log(pageec1);
+			$('#pg').append(pageec1);
+			
+			
+			var page_2eec1 = $(this).find('#ec2').attr('page');
+			console.log(page_2eec1);
+			$('#pg').append(page_2eec1);
+			
+			
+			var page_2eec2 = $(this).find('#2eec2').attr('page');
+			console.log(page_2eec2);
+			$('#pg').append(page_2eec2);
+			*/
+			
+			/*
+			var page_3eec1 = $(this).find('#3eec1').attr('page');
+			console.log(page_3eec1);
+			$('#pg').append(page_3eec1);
+			
+			
+			var page_3eec2 = $(this).find('#3eec2').attr('page');
+			console.log(page_3eec2);
+			$('#pg').append(page_3eec2);
+			
+			
+			var page_3eec3 = $(this).find('#3ee3').attr('page');
+			console.log(page_3eec3);
+			$('#pg').append(page_3eec3);
+			/*
+			
+			
+			
+			
+			var page_4eec1 = $(this).find('#4eec1').attr('page');
+			console.log(page_4eec1);
+			$('#pg').append(page_4eec1);
+			
+			
+			var page_4eec2 = $(this).find('#4eec2').attr('page');
+			console.log(page_4eec2);
+			$('#pg').append(page_4eec2);
+			
+			
+			var page_4eec3 = $(this).find('#4ee3').attr('page');
+			console.log(page_4eec3);
+			$('#pg').append(page_4eec3);
+			
+			
+			var page_4eec4 = $(this).find('#4ee4').attr('page');
+			console.log(page_4eec4);
+			$('#pg').append(page_4eec4);*/
+			
+			
+			
+			
+			
+			$('#droite').fadeIn(function(){
+				
+				$('.ecran').click(function(){
+					$('#droite').fadeOut(function(){
+						var pg = document.getElementById("pg");
+						while (pg.firstChild) {
+							pg.removeChild(pg.firstChild);
+								}
+							});
 						});
-				});
-		     });
+					});
+		     	});
+		
+		
+		
 		
 		
 		$('.temps','#depose').fadeIn();
@@ -520,9 +603,30 @@ $(document).ready(function() {
 		
 		$("#fonction_entre").empty();
 		
-		$("#fonction_entre").append('<div class="form-group"><p><label for="usr">nom du fichier :</label><input type="text" name="fichier" id="n_fich"  size="20" maxlength="15" class="form-control"/><br><label for="usr">texte :</label><input type="text" name="texte"  id="texte"  size="20"  class="form-control"/><br><br><input type="submit" value="AJOUTER" class="btn btn-success"/><input id="annuler1" type="submit" value="ANNULER" type="button" class="btn btn-dark"/></p></div>');
+		$("#fonction_entre").append('<div class="form-group"><p><label for="usr">nom du fichier :</label><input type="text" name="fichier" id="n_fich"  size="20" maxlength="15" class="form-control"/><br><label for="usr">texte :</label><input type="text" name="texte"  id="texte"  size="20"  class="form-control"/><br><br><input id="ajoute_text" type="submit" value="AJOUTER" class="btn btn-success"/><input id="annuler1" type="submit" value="ANNULER" type="button" class="btn btn-dark"/></p></div>');
 		$("#fonc_entr").addClass('row');
 		$("#fonction_entre").fadeIn();
+		
+		
+		
+		$("#ajoute_text").click(function(){
+			var fichier = document.getElementById("n_fich").value;
+			console.log(fichier);
+			
+			var text = document.getElementById("texte").value;
+			console.log(text);
+			
+			text = "";
+			
+			var fich = document.getElementById("texte");
+			while (fich.firstChild) {
+				fich.removeChild(fich.firstChild);
+			}
+			
+			
+			
+			
+		});
 		
 		$("#annuler1").click(function(){
 		$("#fonction_entre").fadeOut(200, function(){
@@ -537,9 +641,12 @@ $(document).ready(function() {
 		
 		$("#fonction_entre").empty();
 		
-		$("#fonction_entre").append('<div class="form-group"><p><label for="usr">nom_image :</label><input type="text" name="fichier" id="n_img"  size="20" maxlength="15" class="form-control"/><br><label for="usr">img_lien :</label><input type="img" name="img"  id="img"  placeholder="Ex :images/logo.png" size="20"  class="form-control"/><br><br><input type="submit" value="AJOUTER" class="btn btn-success"/><input id="annuler1" type="submit" value="ANNULER" type="button" class="btn btn-dark"/></p></div>');
+		$("#fonction_entre").append('<div class="form-group"><p><label for="usr">nom_image :</label><input type="text" name="fichier" id="n_img"  size="20" maxlength="15" class="form-control"/><br><label for="usr">img_lien :</label><input type="img" name="img"  id="img"  placeholder="Ex :images/logo.png" size="20"  class="form-control"/><br><br><input id="ajoute_img" type="submit" value="AJOUTER" class="btn btn-success"/><input id="annuler1" type="submit" value="ANNULER" type="button" class="btn btn-dark"/></p></div>');
 		$("#fonc_entr").addClass('row');
 		$("#fonction_entre").fadeIn();
+		
+		
+		
 		
 		$("#annuler1").click(function(){
 		$("#fonction_entre").fadeOut(200, function(){
@@ -548,15 +655,27 @@ $(document).ready(function() {
 		
 			$("#fonction_entre").empty();
 	});
+		
 	});
 	
 	$("#fc3").click(function(){
 		
 		$("#fonction_entre").empty();
 		
-		$("#fonction_entre").append('<div class="form-group"><p><label for="usr">nom du site web :</label><input type="text" name="n_site" id="n_fich"  size="20" maxlength="15" class="form-control"/><br><label for="usr">URL :</label><input type="url name="site_web"  id="site_web"  size="20"  class="form-control"/><br><br><input type="submit" value="AJOUTER" class="btn btn-success"/><input id="annuler1" type="submit" value="ANNULER" type="button" class="btn btn-dark"/></p></div>');
+		$("#fonction_entre").append('<div class="form-group"><p><label for="usr">nom du site web :</label><input type="text" name="n_site" id="n_site"  size="20" maxlength="15" class="form-control"/><br><label for="usr">URL :</label><input type="url name="site_web"  id="site_web"  size="20"  class="form-control"/><br><br><input id="ajoute_url" type="submit" value="AJOUTER" class="btn btn-success"/><input id="annuler1" type="submit" value="ANNULER" type="button" class="btn btn-dark"/></p></div>');
 		$("#fonc_entr").addClass('row');
 		$("#fonction_entre").fadeIn();
+		
+		
+		$("#ajoute_url").click(function(){
+			var fichier = document.getElementById("n_site").value;
+			console.log(fichier);
+			
+			var text = document.getElementById("site_web").value;
+			console.log(text);
+			
+		});
+		
 		
 		$("#annuler1").click(function(){
 		$("#fonction_entre").fadeOut(200, function(){
@@ -572,7 +691,7 @@ $(document).ready(function() {
 		
 		$("#fonction_entre").empty();
 		
-		$("#fonction_entre").append('<div class="form-group"><p><label for="usr">nom de la video :</label><input type="text" name="n_video" id="n_video"  size="20" maxlength="15" class="form-control"/><br><label for="usr">video :</label><input type="text" name="video"  id="video"  size="20"  class="form-control"/><br><br><input type="submit" value="AJOUTER" class="btn btn-success"/><input id="annuler1" type="submit" value="ANNULER" type="button" class="btn btn-dark"/></p></div>');
+		$("#fonction_entre").append('<div class="form-group"><p><label for="usr">nom de la video :</label><input type="text" name="n_video" id="n_video" size="20" maxlength="15" class="form-control"/><br><label for="usr">video :</label><input type="text" name="video"  id="video"  size="20"  class="form-control"/><br><br><input id="ajoute_video" type="submit" value="AJOUTER" class="btn btn-success"/><input id="annuler1" type="submit" value="ANNULER" type="button" class="btn btn-dark"/></p></div>');
 		$("#fonc_entr").addClass('row');
 		$("#fonction_entre").fadeIn();
 		
@@ -596,7 +715,7 @@ $(document).ready(function() {
 	
 	
 	
-	
+	/*
 	
 	
 		$( ".fonction" ).draggable({
@@ -631,7 +750,7 @@ $(document).ready(function() {
 		
 		
 		}
-	});
+	});*/
 
 });
 	
