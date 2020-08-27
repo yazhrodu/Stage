@@ -10,7 +10,7 @@
 
 	<title>Connexion-ICP ROTO</title>
 	<link rel="stylesheet" href="assets/styles/style.min.css">
-
+	<link rel="stylesheet" href="assets/fonts/material-design/css/materialdesignicons.css">
 	<!-- Waves Effect -->
 	<link rel="stylesheet" href="assets/plugin/waves/waves.min.css">
 
@@ -20,24 +20,18 @@
 
 <div id="single-wrapper">
 	<form  action="auth"  method="POST" class="frm-single">
-		<div class="inside">
+		<div class="inside" id="admin">
+			<h1 class="ico mdi mdi-cast-connected" id="connect_ecran"></h1>
 			<div class="title"><strong>ICP </strong>ROTO</div>
 			<!-- /.title -->
-			<div class="frm-title">CONNEXION</div>
+			<div class="frm-title">CONNEXION_ADMIN</div>
 			<!-- /.frm-title -->
 			<form action="auth" method="POST">
 			<div class="frm-input"><input type="text" name ="username" id="pseudo" placeholder="Identifiant" class="frm-inp"><i class="fa fa-user frm-ico"></i></div>
 			<!-- /.frm-input -->
 			<div class="frm-input"><input type="password" name="password" placeholder="Mot de passe" class="frm-inp"><i class="fa fa-lock frm-ico"></i></div>
 			<!-- /.frm-input -->
-			<div class="clearfix margin-bottom-20">
-				<div class="pull-left">
-					<div class="checkbox primary"><input type="checkbox" id="rememberme"><label for="rememberme">Se souvenir de moi</label></div>
-					<!-- /.checkbox -->
-				</div>
-				
-				<!-- /.pull-right -->
-			</div>
+			
 			<!-- /.clearfix -->
 			<button id="valide" type="submit" class="frm-submit">Connexion<i class="fa fa-arrow-circle-right"></i></button>
 			</form>
@@ -48,6 +42,30 @@
 		</div>
 		<!-- .inside -->
 	</form>
+	
+	<form  action="co_ecran"  method="POST" class="frm-single">
+		<div class="inside" id="ecran_connect" style="display: none;">
+			<h1 class="ico mdi mdi-account-circle" id="admin_connect"></h1>
+			<div class="title"><strong>ICP </strong>ROTO</div>
+			<!-- /.title -->
+			<div class="frm-title" id="valid">CONNEXION_ECRAN</div>
+			<!-- /.frm-title -->
+			<form action="co_ecran" method="POST">
+			<div class="frm-input"><input type="text" id="nomm" name ="nom" placeholder="Nom de l'écran" class="frm-inp"><i class="fa mdi mdi-desktop-mac frm-ico"></i></div>
+			<!-- /.frm-input -->
+			<div class="frm-input"><input type="text" id="ip" name="ip" placeholder="Adresse IP" class="frm-inp"><i class="fa mdi mdi-cast-connected frm-ico"></i></div>
+		
+			<!-- /.clearfix -->
+			<button  type="submit" class="frm-submit">Connexion<i class="fa fa-arrow-circle-right"></i></button>
+			</form>
+			<!-- /.row -->
+
+			<div class="frm-footer">ICP ROTO © 2020</div>
+			<!-- /.footer -->
+		</div>
+		<!-- .inside -->
+	</form>
+	
 	<!-- /.frm-single -->
 </div><!--/#single-wrapper -->
 
@@ -61,8 +79,7 @@
 	<!-- Placed at the end of the document so the pages load faster -->
 	 <script src="/socket.io/socket.io.js"></script>
 	<script>
-		var name = document.getElementById("pseudo").value; 
-		console.log()
+	
 		//$("#valide").click(function(){
 			//var socket = io.connect(document.location.host);
 			//var name = document.getElementById("pseudo").value; 
@@ -74,7 +91,7 @@
 	</script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 	 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<script src="assets/plugin/bootstrap/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 <script src="assets/scripts/gestion.js"></script>
 </body>
 </html>

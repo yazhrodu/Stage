@@ -16,7 +16,7 @@ var io = require('socket.io').listen(server);
 var connection = mysql.createConnection({
 	host     : 'localhost',
 	user     : 'root',
-	password : '',
+	password : '0000',
 	database : 'nodelogin'
 });
 
@@ -80,6 +80,7 @@ io.on('connection', socket => {
 		
 		
 			socket.emit('marche3', ecrans, ecrans_id, id_depott);
+			socket.emit('marche5', ecrans, ecrans_id, id_depott);
     		});
     	});
 				
@@ -126,9 +127,8 @@ io.on('connection', socket => {
 			socket.on('depot11',function(data1){
 				
 				console.log(data1);
-				console.log("rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr"+id_dep);
-				console.log(id_dep+"222222222233233323233");
-			console.log("rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr")
+				console.log(id_dep);
+
 				var JSONString = data1;
  				console.log(JSONString);
 				
@@ -224,11 +224,93 @@ app.post('/accueil', function(request, response) {
 	}
 });
 
+/*
+app.get('/gg', function(request, response) {
+	response.sendFile(path.join(__dirname + '/public/index3.html'));
+	});
+*/
 
-//------------
+
+//------------Page de diffusion
+
+app.post('/co_ecran', function(request, response) {
+	var nom = request.body.nom;
+	var ip = request.body.ip;
+	if (nom && ip) {
+		connection.query('SELECT * FROM ecrans WHERE nom_ec = ? AND adresse_ip = ?', [nom, ip], function(error, results, fields) {
+			
+			if (results.length > 0) {
+				request.session.loggedin = true;
+				request.session.nom = nom;
+   				console.log('Un écran est connecté: ' + nom);
+				
+				
+				response.redirect('/diffusion');
+				
+			} else {
+				response.send("Le nom ou l'adresse IP est incorrecte");
+			}			
+			response.end();
+		});
+		
+	} else {
+		response.send("Entrer s'il vous plait un nom et une adresse IP");
+		response.end();
+	}
+});
+
+
+
+
+app.get('/diffusion', function(request, response) {
+	if(request.session.loggedin){
+	response.sendFile(path.join(__dirname + '/public/index4.html'));
+	 } else {
+		 response.send('Please login to view this page!');
+	 }
+	});
+
+var n_ecran1;
+var n_ecran2 = [];
+io.on('connection', socket => {
+socket.on('dif',function(n_ecran){
+	n_ecran1 = n_ecran;
+	connection.query("UPDATE depot SET nom_depot = '"+n_ecran1+"' WHERE id_depot = 153 ", [n_ecran1], function(err, rows){
+				console.log(rows);
+				console.log("Record insert!!");				
+				console.log("ok");
+		
+		var Nomm;
+			connection.query("SELECT nom_depot FROM depot WHERE id_depot = 153", function(err, rows){
+				 Nomm = rows.nom_depot;
+         		console.log(rows);
+				
+				for (var i = 0; i < rows.length; i++){
+         		var currrentNomm = rows[i];
+         		 Nomm = currrentNomm.nom_dempot;
+
+         		n_ecran2.push(Nomm);
+				console.log(n_ecran2);
+        		}
+				console.log(Nomm);
+			});
+				});
+	
+	});
+	});
+	
+
+
+console.log(n_ecran1+"dddd");
+console.log(n_ecran2+"ddd");
+/*console.log(n_ecran1);*/
+
+
 
 io.on('disconnect', function () {
     io.emit('user disconnected');
+	console.log(n_ecran1);
+
   });
 
 
